@@ -503,10 +503,36 @@
 
 
 /*-------------------- Footer --------------------*/
+.img-marcas{
+    max-width: 6.5rem;
+}
 
+.img-credit-card{
+    max-width: 3rem;
+    margin: 10px;
+}
 
+.footer{
+    background-color: #006711;
+    height: 6rem;
+    position: relative;
+    bottom: 0;
+}
 
+.socialicon{
+    color:gray;
+    font-size: 40px;
+    text-align: center;
+    padding: 15px;
+}
 
+.socialicon:hover{
+    color:#28a745;
+}
+
+.iconos-contacto {
+    font-size: 1.3rem;
+}
 
 
 
