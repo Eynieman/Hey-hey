@@ -1,10 +1,11 @@
+/*---------------Función Swiper---------------*/
 var mySwiper = new Swiper('.swiper-container', {
-    speed: 400,
+    speed: 800,
     spaceBetween: 0,
     grabCursor: true,
     autoplay: {
         autoplay: true,
-        delay: 2000, disableOnInteraction: false
+        delay: 400, disableOnInteraction: false
     }
 });
 
