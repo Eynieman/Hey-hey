@@ -101,26 +101,26 @@
 
 
 /*-------------------- Carrousel --------------------*/
+.swiper-container{
+    overflow:hidden;
+    width:100%;
+    height:100vh;
+}
 
+.swiper-slide{
+    overflow:hidden;
+    width:100%;
+}
 
+img{
+    width:100%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width:576px){
+    .swiper-container{
+    height:100%;
+    }
+}
 
 
 
