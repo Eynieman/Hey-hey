@@ -1,4 +1,22 @@
 /*-------------------- Navbar --------------------*/
+.tittle-navbar{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+.a-navbar{
+    color: beige !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+.drop-nav{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+.a-navbar:hover{
+    box-shadow: 45px 25px 25px transparent ;
+    transform: translate(3px, 3px);
+    transition: 0.5s;
+}
 
 
 
@@ -201,10 +219,27 @@
 
 
 /*-------------------- Sobre nosotros --------------------*/
-
-
-
-
+.img-producto2{
+    position: absolute;
+    top: 250px;
+    left: 155px;
+    z-index: 1;
+}
+.img-producto{
+    position: absolute;
+    top: 100px;
+    left: 55px;
+}
+.text-nosotros{
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    top: 150px;
+    left: 530px;
+    right: 300px;
+}
+.tittle-nosotros{
+    font-family: 'Teko', sans-serif;
+}
 
 
 
