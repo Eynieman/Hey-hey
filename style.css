@@ -101,26 +101,26 @@
 
 
 /*-------------------- Carrousel --------------------*/
+.swiper-container {
+    overflow: hidden;
+    width: 100%;
+}
 
+.swiper-slide {
+    overflow: hidden;
+    width: 100%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.swiper-slide img{
+    height: 800px;
+    width: 100%;
+}
+/*Media Queries carrusel*/
+@media only screen and (max-width: 992px) {
+    .swiper-container img {
+        max-height: 375px;
+    }
+}
 
 
 
@@ -443,76 +443,79 @@
 
 /*-------------------- Tienda con cards --------------------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.container-cards {
+    max-width: 1376px;
+    margin: auto;
+    margin-top: 140px !important;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    cursor: pointer;
+    background-color: transparent;
+    height: 300px;
+    perspective: 1000px;
+    margin: 1rem;
+    border-radius: 14px;
+}
+
+.card h3 {
+    border-bottom: 2px #fff solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+    word-spacing: 2px;
+}
+
+.card p{
+    opacity: 0.8;
+    font-size: 13px;
+}
+
+.card img {
+    width: 250px;
+    height: 300px;
+    border-radius: 14px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.card-inner {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    transition: transform .4s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    border-radius: 14px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    background-color: rgb(65, 112, 68);
+    color: #fff;
+    padding: 2rem;
+    text-align: justify;
+    transform: rotateY(180deg);
+}
 
 
 
