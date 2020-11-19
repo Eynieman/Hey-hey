@@ -8,16 +8,16 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
 }
-.drop-nav{
-    font-family: 'Teko', sans-serif;
-    font-size: 20px;
-}
 .a-navbar:hover{
     box-shadow: 45px 25px 25px transparent ;
     transform: translate(3px, 3px);
     transition: 0.5s;
 }
 
+.drop-nav{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
 
 
 
