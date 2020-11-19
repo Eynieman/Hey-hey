@@ -38,7 +38,7 @@
 /*Media Queries carrusel*/
 @media only screen and (max-width: 992px) {
     .swiper-container img {
-        max-height: 375px;
+        max-height: 285px;
     }
 }
 
