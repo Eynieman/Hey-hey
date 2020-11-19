@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Icono-->
+    <link rel="shortcut icon" href="./img/Hey hey_ - eco market -sin fondo.png" type="image/x-icon">
+
+    <!--Css-->
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <title>Login Hey-hey!</title>
+</head>
+
+<body>
+    <section id="login" class="container login-style">
+        <div class="row">
+            <form id="formLogin" class="">
+
+                <div class="alert alert-danger" role="alert" id="alert">
+                    A simple danger alert—check it out!
+                </div>
+
+                <div class="form-group">
+                    <label class="float-left label-style" for="usuario"><b>Usuario</b> <i class="fas fa-user icon-color"></i></label>
+                    <div class="input-group mb-3">
+                        <input type="text" id="user" class="input-style" placeholder="Username" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="float-left label-style" for="password"><b>Contraseña</b> <i class="fas fa-lock icon-color"></i></label> 
+                    <div class="input-group mb-3">
+                        <input type="password" id="password" class="input-style" placeholder="Password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success mt-4">
+                    Ingresar
+                </button>
+                <a type="link" class="mt-4 btn btn-danger" data-toggle="modal" data-target="#modalCreateAccount">
+                    Crear Cuenta
+                </a> 
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="p-5" id="formCreate">
+                    <div class="form-group">
+                        <label class="float-left" for="usuario">
+                            Usuario
+                        </label>
+                        <input type="text" id="userCreate" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="float-left" for="password">
+                            Contraseña
+                        </label>
+                        <input type="password" id="passwordCreate" class="form-control" placeholder="Password" required>
+                    </div> 
+                    <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
