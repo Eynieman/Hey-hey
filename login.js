@@ -1,7 +1,7 @@
 const formLogin = document.getElementById('formLogin');
 const userInput = document.getElementById('user')
 const passwordInput = document.getElementById('password')
-const alert = document.getElementById('alert')
+const alerta = document.getElementById('alerta')
 
 formLogin.onsubmit = function (e) {
     e.preventDefault()
@@ -13,9 +13,9 @@ formLogin.onsubmit = function (e) {
 
     if (findOutUser) {
         alert('Bienvenido/a');
-        window.location.href = './login.html'
+        window.location.href = './index.html'
     } else {
-        alert.classList.remove('d-none');
+        alerta.classList.remove('d-none');
     }
 }
 
