@@ -17,9 +17,7 @@ formLoginAdm.onsubmit = function (e) {
         password === persona.password;
     if (usuarioValido) {
         window.location.href = './index.html';
-        alert('Bienvenido/a');
     } else {
         alertAdm.classList.remove('d-none');
-        alert('Bienvenido/a');
     }
 };
