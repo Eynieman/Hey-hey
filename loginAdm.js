@@ -16,7 +16,7 @@ formLoginAdm.onsubmit = function (e) {
     const usuarioValido = user === persona.user &&
         password === persona.password;
     if (usuarioValido) {
-        window.location.href = './index.html';
+        window.location.href = './admin.html';
     } else {
         alertAdm.classList.remove('d-none');
     }
