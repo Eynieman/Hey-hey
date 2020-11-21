@@ -29,21 +29,21 @@
         <!-- Sidebar -->
         <div class="bg-dark" id="sidebar-vertical">
             <div class="sidebar-heading">
-                <img src="./img/Hey hey - eco market - PNJ copia.png" class="rounded-circle ml-5" width="100" height="100"
-                alt="" loading="lazy">
+                <img src="./img/Hey hey - eco market - PNJ copia.png" class="rounded-circle ml-5" width="100"
+                    height="100" alt="" loading="lazy">
             </div>
-                <div>
-                    <div class="list-group list-group-flush mt-5">
-                        <button class="btn btn-dark my-5 p-5" type="button" data-toggle="collapse" data-target="#productos" 
+            <div>
+                <div class="list-group list-group-flush mt-5">
+                    <button class="btn btn-dark my-5 p-5" type="button" data-toggle="collapse" data-target="#productos"
                         aria-expanded="false" aria-controls="collapseExample">Productos</button>
-                        <button class="btn btn-dark p-5" type="button" data-toggle="collapse" data-target="#usuarios" 
+                    <button class="btn btn-dark p-5" type="button" data-toggle="collapse" data-target="#usuarios"
                         aria-expanded="false" aria-controls="collapseExample">Usuarios</button>
-                    </div>
-                    <div class="text-light text-center" id="copyRight">
-                        <p>Copyright © Hey hey! <br>
-                            Eco-Market 2020</p>
-                    </div>
-                </div>    
+                </div>
+                <div class="text-light text-center" id="copyRight">
+                    <p>Copyright © Hey hey! <br>
+                        Eco-Market 2020</p>
+                </div>
+            </div>
         </div>
         <!-- /#sidebar-vertical -->
 
@@ -61,15 +61,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-lg-none ">
                         <li class="nav-item active">
-                            <a class="nav-link" data-toggle="collapse" href="#productos" role="button" aria-expanded="false" aria-controls="collapseExample">Productos</a>
+                            <a class="nav-link" data-toggle="collapse" href="#productos" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#usuarios" role="button" aria-expanded="false" aria-controls="collapseExample">Usuarios</a>
+                            <a class="nav-link" data-toggle="collapse" href="#usuarios" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">Usuarios</a>
                         </li>
                     </ul>
                 </div>
 
-                <a class="btn btn-secondary btn-back-login"><i class="fas fa-sign-out-alt"></i></a>
+                <a class="btn btn-secondary btn-back-login" href="./index.html"><i class="fas fa-sign-out-alt"></i></a>
             </nav>
 
             <div class="container-fluid">
@@ -79,41 +81,43 @@
                     <div class="row my-5 mx-auto">
                         <div class="col-m-4 ml-5">
                             <!-- Button trigger modal Create Note -->
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addProduct">
+                            <button type="button" class="btn btn-success" data-toggle="modal"
+                                data-target="#modalAddProduct">
                                 Agregar Producto
                             </button>
                         </div>
-                
+
                         <div class="col-m-6 mx-auto">
                             <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Buscar"
+                                    aria-label="Buscar">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                                     <i class="fas fa-search"></i></button>
                                 </button>
                             </form>
                         </div>
                     </div>
-                
-                
-                    
+
+
+
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Img</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Producto</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col"><i class="fab fa-product-hunt"></i></th>
                             </tr>
                         </thead>
-                        <tbody id="">
-                
-                
-                
+                        <tbody id="tableProducts">
+
+                        
+
                         </tbody>
                     </table>
-                
-                
+
+
                 </div>
 
                 <div id="usuarios" class="my-5 mx-3 collapse">
@@ -129,9 +133,9 @@
                             </tr>
                         </thead>
                         <tbody id="">
-                        
-            
-            
+
+
+
                         </tbody>
                     </table>
                 </div>
@@ -140,55 +144,52 @@
             </div>
         </div>
     </div>
-    
 
 
-<!-- Modal Create Note -->
-<div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content modal-addProduct-style">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cargar un Producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="formProduct">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nombre</label>
-                        <input type="text" class="form-control" id="" placeholder="Nombre del Producto"
-                            required maxlength="60">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Descripción</label>
-                        <textarea class="form-control" id="textAreaNote" rows="3" required
-                            maxlength="200"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
+
+    <!-- Modal Create Product -->
+    <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-addProduct-style">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cargar un Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAddProduct">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nombre</label>
+                            <input type="text" class="form-control" id="nameProduct" placeholder="Nombre del Producto"
+                                required maxlength="60">
                         </div>
-                        <input type="number" class="form-control" id="" placeholder="Precio" required maxlength="20">
-                    </div>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                            <label class="custom-file-label" for="inputGroupFile04">Subir Imagen</label>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Descripción</label>
+                            <textarea class="form-control" id="descriptionProduct" rows="3" required
+                                maxlength="200"></textarea>
                         </div>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" id="priceProduct" placeholder="Precio" required
+                                maxlength="20">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Imagen</label>
+                            <input type="text" class="form-control" id="imgProduct"
+                                placeholder="Ingrese el link de la imagen" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info my-3">Guardar</button>
+                            <button type="button" class="btn btn-secondary my-3" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn add-botons my-3">Guardar</button>
-                <button type="button" class="btn btn-secondary my-3" data-dismiss="modal">Cerrar</button>
-            </div>
-            </form>
         </div>
     </div>
-</div>
 
 
 
@@ -204,7 +205,8 @@
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -212,6 +214,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="./admin.js"></script>
 </body>
 
 </html>
