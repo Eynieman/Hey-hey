@@ -45,6 +45,8 @@ formAddProduct.onsubmit = (event) =>{
 }
 
 function createProduct() {
+    //Traer los productos de local storage
+    const products = JSON.parse(localStorage.getItem('products')) || [];
     const cardsProducts = [];
     const trProducts = [];
 
