@@ -8,6 +8,13 @@ const imgProductInput = document.getElementById('imgProduct');
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
 const tableProducts = document.getElementById('tableProducts');
 
+//DECLARACIÓN DE VARIABLES FORMULARIO EDITAR PRODUCTOS
+const formEditProduct = document.getElementById('formEditProduct');
+const nameEditProductIn = document.getElementById('nameEditProduct');
+const descriptionEditProductIn = document.getElementById('descriptionEditProduct');
+const priceEditProductIn = document.getElementById('priceEditProduct');
+const imgEditProductIn = document.getElementById('imgEditProduct');
+
 
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
@@ -57,7 +64,7 @@ function createProduct() {
             <td>${product.descriptionProduct}</td>
             <td>${product.priceProduct}</td>
             <td>
-                <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditNote" onclick="">
+                <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditProduct" onclick="uploadFormEdit('${product.id}')">
                 <i class="fas fa-user-edit"></i></button>  
                 
                 <button onclick="deleteProduct('${product.id}')" class="btn btn-sm btn-danger mx-2">
@@ -80,3 +87,38 @@ function deleteProduct(productId) {
     createProduct();
 }
 
+
+const uploadFormEdit = (productId) =>{
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const product = products.find((producto) => producto.id === productId);
+    nameEditProductIn.value = product.nameProduct;
+    descriptionEditProductIn.value = product.descriptionProduct;
+    priceEditProductIn.value = product.priceProduct;
+    imgEditProductIn.value = product.imgProduct;
+    editProductId = product.id;
+}
+
+
+
+formEditProduct.onsubmit = (evento) =>{
+    evento.preventDefault();
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+    //Tomar los valores de los input del producto
+    const nameProduct = nameEditProductIn.value;
+    const descriptionProduct = descriptionEditProductIn.value;
+    const priceProduct = priceEditProductIn.value;
+    const imgProduct = imgEditProductIn.value;
+    
+
+    const updateProduct = products.map((producto) => (
+        (producto.id === editProductId) ? {...producto, nameProduct, descriptionProduct, priceProduct, imgProduct} : producto
+    ))
+
+    const productsEdit = JSON.stringify(updateProduct);
+    localStorage.setItem('products', productsEdit);
+
+    formEditProduct.reset();
+    $('#modalEditProduct').modal('hide');
+    createProduct();
+}
