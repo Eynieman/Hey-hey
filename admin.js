@@ -60,7 +60,7 @@ function createProduct() {
                 <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditNote" onclick="">
                 <i class="fas fa-user-edit"></i></button>  
                 
-                <button onclick="" class="btn btn-sm btn-danger mx-2">
+                <button onclick="deleteProduct('${product.id}')" class="btn btn-sm btn-danger mx-2">
                 <i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
@@ -72,3 +72,11 @@ function createProduct() {
     tableProducts.innerHTML = trProducts.join('');
 }
 createProduct();
+
+function deleteProduct(productId) {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const filteredProducts = products.filter((product)=> product.id !== productId);
+    localStorage.setItem('products', JSON.stringify(filteredProducts));
+    createProduct();
+}
+
