@@ -6,7 +6,6 @@ const priceProductInput = document.getElementById('priceProduct');
 const imgProductInput = document.getElementById('imgProduct');
 
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
-const spaceCardsAdd = document.getElementById('spaceCardsAdd');
 const tableProducts = document.getElementById('tableProducts');
 
 
@@ -47,34 +46,13 @@ formAddProduct.onsubmit = (event) =>{
 function createProduct() {
     //Traer los productos de local storage
     const products = JSON.parse(localStorage.getItem('products')) || [];
-    const cardsProducts = [];
     const trProducts = [];
 
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
-        const card = `
-        <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="${product.imgProduct}"
-                            alt="">
-                    </div>
-                    <div class="card-back">
-                        <h3>${product.nameProduct}</h3>
-                        <p>
-                            ${product.descriptionProduct}
-                        </p>
-                            <div class="btn-group-sm text-center" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary" disabled>'$'${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary">Comprar <i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        `
         const tr = `
         <tr>
-            <th scope="row">${product[i]}</th>
+            <th scope="row">${[i]}</th>
             <td>${product.nameProduct}</td>
             <td>${product.descriptionProduct}</td>
             <td>${product.priceProduct}</td>
@@ -87,10 +65,10 @@ function createProduct() {
             </td>
         </tr>
         `
-        cardsProducts.unshift(card);
+        
         trProducts.unshift(tr);
     }
-    spaceCardsAdd.innerHTML = cardsProducts.join('');
+    
     tableProducts.innerHTML = trProducts.join('');
 }
 createProduct();
