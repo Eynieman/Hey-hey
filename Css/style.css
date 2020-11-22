@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Indie+Flower&family=Nerko+One&display=swap');
+
 /*-------------------- Navbar --------------------*/
 .tittle-navbar{
     font-family: 'Teko', sans-serif;
@@ -9,7 +11,7 @@
 .a-navbar{
     color: beige !important;
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 1.3rem;
 }
 .a-navbar:hover{
     box-shadow: 45px 25px 25px transparent ;
@@ -18,7 +20,7 @@
 }
 
 .drop-nav{
-    font-family: 'Teko', sans-serif;
+    font-family: 'Nerko One', cursive;
     font-size: 20px;
 }
 
@@ -55,16 +57,47 @@
     background-size: cover;
 }
 
+.title-nosotros{
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+}
 
 .text-nosotros{
+    font-family: 'Indie Flower', cursive;
     margin-top: 5%;
     font-size: 1.3rem;
 }
 
+@media (max-width: 768px){
+    .title-nosotros{
+        font-size: 2rem;
+        margin-top: 5rem;
+        padding: 2rem;
+    }
+    .text-nosotros{
+        font-size: 1rem;
+        margin: 2rem;
+    }
+}
+
+
 /*-------------------- Collage informativo --------------------*/
+
 .container-collage {
     position: relative;
     width: 100%;
+}
+
+.title-collage{
+    font-family: 'Nerko One', cursive;
+    padding: 1.2rem;
+    font-size: 3rem;
+}
+
+.subtitle-collage{
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .img-collage {
@@ -116,6 +149,12 @@
     margin-top: 10rem;
     margin-bottom: 10rem;
 }
+
+.hr-products{
+    border-width: 1rem;
+    border-color:#02681ac4;
+}
+
 .container-cards {
     max-width: 1376px;
     margin: auto;
@@ -183,13 +222,22 @@
 }
 
 .card-back {
-    background-color: rgb(65, 112, 68);
+    background-color: #02681ac4;
     color: #fff;
     padding: 2rem;
     text-align: justify;
     transform: rotateY(180deg);
 }
 
+.fixed-bottom{
+    position: absolute;
+    bottom: 1rem;
+}
+
+.btn-price{
+    color: white;
+    font-weight: 800;
+}
 
 
 
@@ -227,16 +275,10 @@
 
 
 /* -------------------- Página Contacto --------------------  */
-.logo-hey-contact-page{
-    max-width: 10rem;
-}
 
 .titulo-hey-contact-page{
     font-family: 'Merienda One', cursive;
     font-size: 17rem;
-    position: absolute;
-    top: 15%;
-    left: 20%;
 }
 
 

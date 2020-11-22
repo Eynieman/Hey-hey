@@ -23,8 +23,8 @@ function createProduct() {
                         <p>
                             ${product.descriptionProduct}
                         </p>
-                            <div class="btn-group-sm text-center" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary" disabled>$${product.priceProduct}</button>
+                            <div class="btn-group-m text-center fixed-bottom" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-dark btn-price" disabled>$${product.priceProduct}</button>
                                 <button type="button" class="btn btn-secondary">Comprar <i class="fas fa-shopping-cart"></i></button>
                             </div>
                     </div>
