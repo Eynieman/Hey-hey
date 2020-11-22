@@ -3,6 +3,9 @@
     font-family: 'Teko', sans-serif;
     font-size: 20px;
 }
+.fondo-navBar{
+    background-color: #02681ac4;
+}
 .a-navbar{
     color: beige !important;
     font-family: 'Open Sans', sans-serif;
@@ -32,7 +35,7 @@
 }
 
 .swiper-slide img{
-    height: 800px;
+    /* max-height: 500px; */
     width: 100%;
 }
 /*Media Queries carrusel*/
@@ -46,13 +49,17 @@
 
 /*-------------------- Sobre nosotros --------------------*/
 #sectionNosotros{
-    margin-top: 12rem;
-    margin-bottom: 10rem;
+    padding-top: 12rem;
+    padding-bottom: 10rem;
+    background-image: url(https://image.freepik.com/foto-gratis/pared-ladrillo-pintado-blanco_1194-7526.jpg);
+    background-size: cover;
 }
 
 
-
-
+.text-nosotros{
+    margin-top: 5%;
+    font-size: 1.3rem;
+}
 
 /*-------------------- Collage informativo --------------------*/
 .container-collage {
