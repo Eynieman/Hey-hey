@@ -4,25 +4,13 @@ const passwordInput = document.getElementById('password');
 const alerta = document.getElementById('alerta');
 const userAcount = document.getElementById('userAcount');
 
-formLogin.onsubmit = function (e) {
-    e.preventDefault()
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = userInput.value;
-    const password = passwordInput.value;
-    const findOutUser = users.find((u) => u.user === user && u.password === password);
-    
+//USER ADMIN
+const administrador = {
+    user: 'admin1',
+    password: 'admin1',
+};
 
-
-    if (findOutUser) {
-        alert('Bienvenido/a');
-        window.location.href = './index.html';
-        userAcount.classList.remove('d-none');
-    } else {
-        alerta.classList.remove('d-none');
-    }
-}
-
-
+//OUT USERS
 const formCreate = document.getElementById('formCreate')
 const userCreateInput = document.getElementById('userCreate')
 const passwordCreateInput = document.getElementById('passwordCreate')
@@ -43,4 +31,26 @@ formCreate.onsubmit = (e) => {
     formCreate.reset();
     $('#modalCreateAccount').modal('hide');
 }
+
+
+formLogin.onsubmit = function (e) {
+    e.preventDefault()
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = userInput.value;
+    const password = passwordInput.value;
+    const findOutUser = users.find((u) => u.user === user && u.password === password);
+    const userAdmin = user === administrador.user && password === administrador.password;
+
+    if (userAdmin) {
+        alert('Bienvenido/a');
+        window.location.href = './admin.html';
+    } else if (findOutUser) {
+        alert('Bienvenido/a');
+        window.location.href = './index.html';
+    }else{
+        alerta.classList.remove('d-none');
+    }
+    
+}
+
 
