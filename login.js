@@ -1,7 +1,8 @@
 const formLogin = document.getElementById('formLogin');
-const userInput = document.getElementById('user')
-const passwordInput = document.getElementById('password')
-const alerta = document.getElementById('alerta')
+const userInput = document.getElementById('user');
+const passwordInput = document.getElementById('password');
+const alerta = document.getElementById('alerta');
+const userAcount = document.getElementById('userAcount');
 
 formLogin.onsubmit = function (e) {
     e.preventDefault()
@@ -9,11 +10,13 @@ formLogin.onsubmit = function (e) {
     const user = userInput.value;
     const password = passwordInput.value;
     const findOutUser = users.find((u) => u.user === user && u.password === password);
+    
 
 
     if (findOutUser) {
         alert('Bienvenido/a');
-        window.location.href = './index.html'
+        window.location.href = './index.html';
+        userAcount.classList.remove('d-none');
     } else {
         alerta.classList.remove('d-none');
     }

@@ -15,6 +15,9 @@ const descriptionEditProductIn = document.getElementById('descriptionEditProduct
 const priceEditProductIn = document.getElementById('priceEditProduct');
 const imgEditProductIn = document.getElementById('imgEditProduct');
 
+//DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
+const searchForm = document.getElementById('searchForm');
+const searchProductInput = document.getElementById('searchProductInput');
 
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
@@ -47,12 +50,11 @@ formAddProduct.onsubmit = (event) =>{
     alert('Su producto se guardó con correctamente')
     formAddProduct.reset();
     $('#modalAddProduct').modal('hide');
-    createProduct();
+    displayAllProducts();
 }
 
-function createProduct() {
-    //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+function createProduct(products) {
+    
     const trProducts = [];
 
     for (let i = 0; i < products.length; i++) {
@@ -78,13 +80,19 @@ function createProduct() {
     
     tableProducts.innerHTML = trProducts.join('');
 }
-createProduct();
+displayAllProducts();
+
+function displayAllProducts() {
+    //Traer los productos de local storage
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    createProduct(products);
+}
 
 function deleteProduct(productId) {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const filteredProducts = products.filter((product)=> product.id !== productId);
     localStorage.setItem('products', JSON.stringify(filteredProducts));
-    createProduct();
+    displayAllProducts();
 }
 
 
@@ -120,5 +128,16 @@ formEditProduct.onsubmit = (evento) =>{
 
     formEditProduct.reset();
     $('#modalEditProduct').modal('hide');
-    createProduct();
+    displayAllProducts();
 }
+
+    searchForm.onsubmit = (e) => {
+    e.preventDefault();
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const term = searchProductInput.value;
+    const filteredProducts = products.filter(product =>(
+        product.nameProduct.toLowerCase().includes(term.toLowerCase())
+        ));
+        searchForm.reset();
+        createProduct(filteredProducts);    
+};
