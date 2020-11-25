@@ -1,7 +1,7 @@
 const formLogin = document.getElementById('formLogin');
-const userInput = document.getElementById('user')
-const passwordInput = document.getElementById('password')
-const alerta = document.getElementById('alerta')
+const userInput = document.getElementById('user');
+const passwordInput = document.getElementById('password');
+const alerta = document.getElementById('alerta');
 
 formLogin.onsubmit = function (e) {
     e.preventDefault()
@@ -20,20 +20,30 @@ formLogin.onsubmit = function (e) {
 }
 
 
-const formCreate = document.getElementById('formCreate')
-const userCreateInput = document.getElementById('userCreate')
-const passwordCreateInput = document.getElementById('passwordCreate')
+const formCreate = document.getElementById('formCreate');
+const userCreateInput = document.getElementById('userNameCreate');
+const passwordCreateInput = document.getElementById('passwordCreate');
+const nicknameCreateInput = document.getElementById('nicknameCreate');
+const emailCreateInput = document.getElementById('emailCreate');
+const birthDateCreateInput = document.getElementById('birthDateCreate');
+
 
 formCreate.onsubmit = (e) => {
     e.preventDefault()
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = userCreateInput.value;
     const password = passwordCreateInput.value;
+    const nickname = nicknameCreateInput.value;
+    const email = emailCreateInput.value;
+    const birthDate = birthDateCreateInput.value;
 
 
     users.push({
         user,
         password,
+        nickname,
+        email,
+        birthDate,
     })
 
     localStorage.setItem('users', JSON.stringify(users));
