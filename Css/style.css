@@ -242,6 +242,11 @@
 
 
 /*-------------------- Footer --------------------*/
+
+.service-icon{
+    font-size: 1.5rem;
+}
+
 .img-marcas{
     max-width: 6.5rem;
 }
