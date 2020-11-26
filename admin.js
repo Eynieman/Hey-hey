@@ -6,9 +6,18 @@ const priceProductInput = document.getElementById('priceProduct');
 const imgProductInput = document.getElementById('imgProduct');
 
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
-const spaceCardsAdd = document.getElementById('spaceCardsAdd');
 const tableProducts = document.getElementById('tableProducts');
 
+//DECLARACIÓN DE VARIABLES FORMULARIO EDITAR PRODUCTOS
+const formEditProduct = document.getElementById('formEditProduct');
+const nameEditProductIn = document.getElementById('nameEditProduct');
+const descriptionEditProductIn = document.getElementById('descriptionEditProduct');
+const priceEditProductIn = document.getElementById('priceEditProduct');
+const imgEditProductIn = document.getElementById('imgEditProduct');
+
+//DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
+const searchForm = document.getElementById('searchForm');
+const searchProductInput = document.getElementById('searchProductInput');
 
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
@@ -41,54 +50,94 @@ formAddProduct.onsubmit = (event) =>{
     alert('Su producto se guardó con correctamente')
     formAddProduct.reset();
     $('#modalAddProduct').modal('hide');
-    createProduct();
+    displayAllProducts();
 }
 
-function createProduct() {
-    const cardsProducts = [];
+function createProduct(products) {
+    
     const trProducts = [];
 
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
-        const card = `
-        <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="${product.imgProduct}"
-                            alt="">
-                    </div>
-                    <div class="card-back">
-                        <h3>${product.nameProduct}</h3>
-                        <p>
-                            ${product.descriptionProduct}
-                        </p>
-                            <div class="btn-group-sm text-center" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary" disabled>'$'${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary">Comprar <i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        `
         const tr = `
         <tr>
-            <th scope="row">${product[i]}</th>
+            <th scope="row">${[i]}</th>
             <td>${product.nameProduct}</td>
             <td>${product.descriptionProduct}</td>
             <td>${product.priceProduct}</td>
             <td>
-                <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditNote" onclick="">
+                <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditProduct" onclick="uploadFormEdit('${product.id}')">
                 <i class="fas fa-user-edit"></i></button>  
                 
-                <button onclick="" class="btn btn-sm btn-danger mx-2">
+                <button onclick="deleteProduct('${product.id}')" class="btn btn-sm btn-danger mx-2">
                 <i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
         `
-        cardsProducts.unshift(card);
+        
         trProducts.unshift(tr);
     }
-    spaceCardsAdd.innerHTML = cardsProducts.join('');
+    
     tableProducts.innerHTML = trProducts.join('');
 }
-createProduct();
+displayAllProducts();
+
+function displayAllProducts() {
+    //Traer los productos de local storage
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    createProduct(products);
+}
+
+function deleteProduct(productId) {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const filteredProducts = products.filter((product)=> product.id !== productId);
+    localStorage.setItem('products', JSON.stringify(filteredProducts));
+    displayAllProducts();
+}
+
+
+const uploadFormEdit = (productId) =>{
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const product = products.find((producto) => producto.id === productId);
+    nameEditProductIn.value = product.nameProduct;
+    descriptionEditProductIn.value = product.descriptionProduct;
+    priceEditProductIn.value = product.priceProduct;
+    imgEditProductIn.value = product.imgProduct;
+    editProductId = product.id;
+}
+
+
+
+formEditProduct.onsubmit = (evento) =>{
+    evento.preventDefault();
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+    //Tomar los valores de los input del producto
+    const nameProduct = nameEditProductIn.value;
+    const descriptionProduct = descriptionEditProductIn.value;
+    const priceProduct = priceEditProductIn.value;
+    const imgProduct = imgEditProductIn.value;
+    
+
+    const updateProduct = products.map((producto) => (
+        (producto.id === editProductId) ? {...producto, nameProduct, descriptionProduct, priceProduct, imgProduct} : producto
+    ))
+
+    const productsEdit = JSON.stringify(updateProduct);
+    localStorage.setItem('products', productsEdit);
+
+    formEditProduct.reset();
+    $('#modalEditProduct').modal('hide');
+    displayAllProducts();
+}
+
+    searchForm.onsubmit = (e) => {
+    e.preventDefault();
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const term = searchProductInput.value;
+    const filteredProducts = products.filter(product =>(
+        product.nameProduct.toLowerCase().includes(term.toLowerCase())
+        ));
+        searchForm.reset();
+        createProduct(filteredProducts);    
+};
