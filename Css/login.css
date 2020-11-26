@@ -3,6 +3,7 @@ body{
     background: url(../img/fondo.jpg) ;
     background-size: 100%;
 }
+
 .login-style{
     display: flex;
     justify-content: center;
@@ -22,8 +23,33 @@ body{
     letter-spacing: 1px;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #FFF;
+    border-bottom: 3px solid yellowgreen;
     outline: none;
     background-color: transparent;
     color: inherit;
+    caret-color: yellowgreen;
+}
+.button-iniciar{
+    background-color: lawngreen;
+    border-radius: 10px;
+}
+.button-iniciar:hover{
+    background-color: rgba(126, 252, 0, 0.747);
+    transition: all 0.3s ease;
+}
+
+.create-login{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.create-button{
+color: black;
+text-decoration: none;
+}
+.create-button:hover{
+    color:rgba(0, 0, 0, 0.822);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
 }

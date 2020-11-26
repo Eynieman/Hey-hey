@@ -21,71 +21,75 @@
 <body>
     <section id="login" class="container login-style">
         <div class="row">
-            <form id="formLogin" class="">
+            <form id="formLogin" class="form-login">
                 <div id="alerta" class="alert alert-danger d-none" role="alert">
                     ¡Datos Inválidos, intente nuevamente!
                 </div>
                 <div class="form-group">
-                    <label class="float-left label-style" for="usuario"><b>Usuario</b> <i class="fas fa-user icon-color"></i></label>
+                    <label class="float-left label-style" for="usuario"> <span class="text-label">Nombre</span> <i
+                            class="fas fa-user icon-color"></i></label>
                     <div class="input-group mb-3">
-                        <input type="text" id="user" class="input-style" placeholder="Username" required>
+                        <input type="text" id="user" class="input-style" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="float-left label-style" for="password"><b>Contraseña</b> <i class="fas fa-lock icon-color"></i></label> 
+                    <label class="float-left label-style" for="password"><span class="text-label">Contraseña</span> <i
+                            class="fas fa-lock icon-color"></i></label>
                     <div class="input-group mb-3">
-                        <input type="password" id="password" class="input-style" placeholder="Password" required>
+                        <input type="password" id="password" class="input-style" required>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success mt-4">
+                <button type="submit" class="btn btn-block button-iniciar">
                     Ingresar
                 </button>
-                <a type="link" class="mt-4 btn btn-danger" data-toggle="modal" data-target="#modalCreateAccount">
-                    Crear Cuenta
-                </a> 
-
-                </div>
-            </form>
+                <div class="create-login">
+                <h5>No tenes Cuenta aun?</h5><a type="link" class="ml-3 create-button" data-toggle="modal" data-target="#modalCreateAccount"><b>Crear Cuenta</b></a>
+            </div>
+        </div>
+        </form>
         </div>
     </section>
 
 
 
     <!-- Modal -->
-<div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="p-5" id="formCreate">
-                    <div class="form-group">
-                        <label class="float-left" for="usuario">
-                            Usuario
-                        </label>
-                        <input type="text" id="userCreate" class="form-control" placeholder="Username" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="float-left" for="password">
-                            Contraseña
-                        </label>
-                        <input type="password" id="passwordCreate" class="form-control" placeholder="Password" required>
-                    </div> 
-                    <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
-                </form>
+    <div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="p-5" id="formCreate">
+                        <div class="form-group">
+                            <label class="float-left" for="usuario">
+                                Usuario
+                            </label>
+                            <input type="text" id="userCreate" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="float-left" for="password">
+                                Contraseña
+                            </label>
+                            <input type="password" id="passwordCreate" class="form-control" placeholder="Password"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -93,8 +97,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script src="./login.js"></script>
-        
+    <script src="./login.js"></script>
+
 
 </body>
 
