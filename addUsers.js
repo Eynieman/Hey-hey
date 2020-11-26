@@ -79,3 +79,14 @@ formUserEdit.onsubmit = (e) => {
     $('#editUserModal').modal('hide');
 }
 
+searchForm.onsubmit = (e) => {
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const term = search.value.toLowerCase();
+    console.log("term", term);
+    const filteredUsers = users.filter((u) => (
+        u.user.toLowerCase().includes(term) || u.nickname.toLowerCase().includes(term)
+    ));
+    displayUsers(filteredUsers);
+}
+displayAllUsers(); 
