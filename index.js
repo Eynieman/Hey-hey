@@ -41,23 +41,23 @@ createProduct();
 
 
 
-// TRAER LOS USUARIOS DEL LOCALSTORAGE
-const users = JSON.parse(localStorage.getItem('users')) || [];
+// TRAER EL USUARIO LOGUEADO DEL LOCALSTORAGE
+const userLogged = JSON.parse(localStorage.getItem('userLogged'));
 
 // AREA DONDE APARECE EL LOGIN DE USUARIO
 const userNav = document.getElementById('userNav');
 
-
-if (users.id === null){
+//MOSTRAR EL USUARIO EN CASO QUE ESTÉ LOGUEADO
+if (userLogged !== null){
     userNav.innerHTML = 
     `
     <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user mx-2"></i>${users.user}
+            <i class="fas fa-user mx-2"></i>${userLogged.nombreApellido}
             </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Carrito</a>
-            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+            <button class="dropdown-item">Carrito</button>
+            <button type="button" class="dropdown-item" onclick="logOut()">Cerrar Sesión</button>
         </div>
     </div>
 
@@ -70,4 +70,10 @@ if (users.id === null){
     </div>
 
     `
+}
+
+//ELIMINAR EL USUARIO LOGUEADO Y RECARGAR LA PAGINA
+function logOut(){
+    localStorage.removeItem('userLogged');
+    location.reload();
 }

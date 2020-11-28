@@ -57,6 +57,7 @@ formLogin.onsubmit = function (e) {
         alert('Bienvenido/a');
         window.location.href = './admin.html';
     } else if (findOutUser) {
+        localStorage.setItem('userLogged', JSON.stringify(findOutUser));
         alert('Bienvenido/a');
         window.location.href = './index.html';
     }else{
