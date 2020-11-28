@@ -251,6 +251,17 @@
     max-width: 6.5rem;
 }
 
+.h6-services{
+    font-family: 'Nerko One', cursive;
+    font-size: 1.2rem;
+    color: #006711;
+}
+
+.icon-services{
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
 .img-credit-card{
     max-width: 3rem;
     margin: 10px;
@@ -276,14 +287,42 @@
 
 .iconos-contacto {
     font-size: 1.3rem;
+    color:  #006711;
 }
 
+.titles-footer{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+}
 
+.border-div{
+    border-right: 2px solid  #006711;
+}
+
+.quick-links{
+    color: gray;
+    font-weight: bold;
+    padding: 10px;
+}
+.quick-links:hover{
+    color:  #006711;
+}
+
+.contact-p{
+    color: gray;
+    font-weight: bold;
+}
 /* -------------------- Página Contacto --------------------  */
 
 .titulo-hey-contact-page{
     font-family: 'Merienda One', cursive;
     font-size: 17rem;
+}
+
+.font-contact-form{
+    font-family: 'Merienda One', cursive;
+    font-size: 1rem;
+    color: gray;
 }
 
 

@@ -57,30 +57,30 @@
     <div class="jumbotron jumbotron-fluid mb-0">
         <div class="container row">
             <div class="col-6 mx-auto titulo-hey-contact-page">
-                <h1>Hey hey! - Eco Market</h1>
+                <h1 class="mb-5">Hey hey! - Eco Market</h1>
                 <p class="lead">¿En que podemos ayudarte?</p>
             </div>
         </div>
     </div>
-    <div id="seccionContacto">
+    <div id="seccionContacto" class="mt-5">
         <div class="container p-5">
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col">
-                            <h4 class="titulos-contacto">Contactanos</h4>
+                            <h4 class="title-nosotros">Contactanos</h4>
+                            <hr class="hr-products mb-5">
                         </div>
                     </div>
-                    <form class="m-2" onsubmit="formularioEnviado()">
-                        <h4 class="titulos-contacto">Formulario de Contacto</h4>
+                    <form class="m-2 font-contact-form" onsubmit="formularioEnviado()">
                         <div class="form-group">
                             <label for="formGroupExampleInput">Nombre</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre*"
+                            <input type="text" class="form-control" id="formGroupExampleInput" 
                                 required data-validation-required-message="Ingrese su nombre">
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput2">E-mail</label>
-                            <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email*"
+                            <input type="email" class="form-control" id="formGroupExampleInput2" 
                                 required data-validation-required-message="Ingrese su email">
                         </div>
                         <div class="form-group">
@@ -101,8 +101,8 @@
                         <button type="submit" class="btn btn-success mb-5">Enviar</button>
                     </form>
                 </div>
-                <div class="col-md-6">
-                    <div class="row m-2 justify-content-center">
+                <div class="col-md-6 mt-5">
+                    <div class="row m-2 mt-5 justify-content-center">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102299323881!2d-65.20782407770886!3d-26.83669836942554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0ee27797a5%3A0xdcd83f8cf19c9afd!2sGral.%20Paz%20500%2C%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1602881338092!5m2!1ses!2sar"
                             width="500" height="450" frameborder="0" style="border:0;" allowfullscreen=""
@@ -119,39 +119,41 @@
 
     <footer>
         <div class="container my-5">
-        <div class="row">
-            <div class="col-md-4 text-center border-right mb-4">
-                <h6>Quick Links</h6>
-                <ul class="nav flex-column mt-4">
-                    <li class="nav-item"><a href="./index.html">Inicio</a></li>
-                    <li class="nav-item"><a href="">Nosotros</a></li>
-                    <li class="nav-item"><a href="">Productos</a></li>
-                    <li class="nav-item"><a href="">Tienda</a></li>
-                    <li class="nav-item"><a href="./contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 text-center border-right mb-4">
-                <h6>Contactanos</h6>
+            <div class="row">
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Quick Links</h6>
+                    <ul class="nav flex-column mt-4">
+                        <li class="nav-item"><a class="quick-links" href="">Inicio</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Nosotros</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Productos</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Tienda</a></li>
+                        <li class="nav-item"><a class="quick-links" href="./contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Contactanos</h6>
                     <div class="row justify-content-center mt-4">
                         <i class="fas fa-phone-volume mx-3 iconos-contacto"></i>
-                        <p>+543816987541</p>
+                        <p class="contact-p">+543816987541</p>
                     </div>
                     <div class="row justify-content-center">
                         <i class="fas fa-envelope-open mx-3 iconos-contacto"></i>
-                        <p>heyhey_ecomarket@gmail.com</p>
+                        <p class="contact-p">heyhey_ecomarket@gmail.com</p>
                     </div>
                     <div class="row justify-content-center">
                         <i class="fas fa-map-marker-alt mx-3 iconos-contacto"></i>
-                        <p>General Paz 500 - S.M de Tucumán</p>
+                        <p class="contact-p">General Paz 500 - S.M de Tucumán</p>
                     </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h6 class="mb-4">Seguinos en las Redes</h6>
-                <a href="http://facebook.com" target="_blank" class="socialicon"><i class="fab fa-facebook-square"></i></a>
-                <a href="http://instagram.com" target="_blank" class="socialicon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h6 class="mb-4 titles-footer">Seguinos en las Redes</h6>
+                    <a href="http://facebook.com" target="_blank" class="socialicon"><i
+                            class="fab fa-facebook-square"></i></a>
+                    <a href="http://instagram.com" target="_blank" class="socialicon"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-    </div>
 
 
     <div class="container-fluid footer">
