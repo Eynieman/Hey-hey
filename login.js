@@ -54,10 +54,10 @@ formLogin.onsubmit = function (e) {
     const findOutUser = users.find((u) => u.user === user && u.password === password);
     const userAdmin = user === administrador.user && password === administrador.password;
     if (userAdmin) {
-        alert('Bienvenido/a');
+        alert('Bienvenido/a😁');
         window.location.href = './admin.html';
     } else if (findOutUser) {
-        alert('Bienvenido/a');
+        alert('Bienvenido/a😁');
         window.location.href = './index.html';
     }else{
         alerta.classList.remove('d-none');
