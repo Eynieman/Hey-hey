@@ -38,3 +38,42 @@ function createProduct() {
     spaceCardsAdd.innerHTML = cardsProducts.join('');
 }
 createProduct();
+
+
+
+// TRAER EL USUARIO LOGUEADO DEL LOCALSTORAGE
+const userLogged = JSON.parse(localStorage.getItem('userLogged'));
+
+// AREA DONDE APARECE EL LOGIN DE USUARIO
+const userNav = document.getElementById('userNav');
+
+//MOSTRAR EL USUARIO EN CASO QUE ESTÉ LOGUEADO
+if (userLogged !== null){
+    userNav.innerHTML = 
+    `
+    <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user mx-2"></i>${userLogged.nombreApellido}
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item">Carrito</button>
+            <button type="button" class="dropdown-item" onclick="logOut()">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    `
+}else {
+    userNav.innerHTML =
+    `
+    <div id="btnLogin" class="">
+            <a class="btn btn-secondary" href="./login.html" target="_blank" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
+    </div>
+
+    `
+}
+
+//ELIMINAR EL USUARIO LOGUEADO Y RECARGAR LA PAGINA
+function logOut(){
+    localStorage.removeItem('userLogged');
+    location.reload();
+}
