@@ -27,6 +27,10 @@ formCreate.onsubmit = (e) => {
     const email =  emailInput.value;
     const nombreApellido = nombreApellidoInput.value;
     const birthDateCreate = birthDateCreateInput.value;
+    //Funcion para crear el id unico para cada nota
+    const generateId = function () {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    };
 
     users.push({
         user,
@@ -34,7 +38,9 @@ formCreate.onsubmit = (e) => {
         email,
         nombreApellido,
         birthDateCreate,
+        id: generateId(),
     })
+    
     localStorage.setItem('users', JSON.stringify(users));
     formCreate.reset();
     $('#modalCreateAccount').modal('hide');
