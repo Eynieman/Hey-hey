@@ -38,3 +38,36 @@ function createProduct() {
     spaceCardsAdd.innerHTML = cardsProducts.join('');
 }
 createProduct();
+
+
+
+// TRAER LOS USUARIOS DEL LOCALSTORAGE
+const users = JSON.parse(localStorage.getItem('users')) || [];
+
+// AREA DONDE APARECE EL LOGIN DE USUARIO
+const userNav = document.getElementById('userNav');
+
+
+if (users.id === null){
+    userNav.innerHTML = 
+    `
+    <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user mx-2"></i>${users.user}
+            </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Carrito</a>
+            <a class="dropdown-item" href="#">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    `
+}else {
+    userNav.innerHTML =
+    `
+    <div id="btnLogin" class="">
+            <a class="btn btn-secondary" href="./login.html" target="_blank" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
+    </div>
+
+    `
+}
