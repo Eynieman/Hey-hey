@@ -66,12 +66,13 @@ function createProduct(products) {
             <td>${product.descriptionProduct}</td>
             <td>${product.priceProduct}</td>
             <td>
-                <button type="button" class="btn btn-sm btn-warning text-light ml-3" data-toggle="modal" data-target="#modalEditProduct" onclick="uploadFormEdit('${product.id}')">
+                <button type="button" class="btn btn-sm btn-warning text-light" data-toggle="modal" data-target="#modalEditProduct" onclick="uploadFormEdit('${product.id}')">
                 <i class="fas fa-user-edit"></i></button>  
-                
-                <button onclick="deleteProduct('${product.id}')" class="btn btn-sm btn-danger mx-2">
-                <i class="fas fa-trash-alt"></i></button>
             </td>
+            <td>
+                <button onclick="deleteProduct('${product.id}')" class="btn btn-sm btn-danger">
+                <i class="fas fa-trash-alt"></i></button>
+            </td>    
         </tr>
         `
         

@@ -40,12 +40,6 @@
     /* max-height: 500px; */
     width: 100%;
 }
-/*Media Queries carrusel*/
-@media only screen and (max-width: 992px) {
-    .swiper-container img {
-        max-height: 285px;
-    }
-}
 
 
 
