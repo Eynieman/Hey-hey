@@ -56,7 +56,7 @@ formUserEdit.onsubmit = (e) => {
     const nombreApellido = userNameEdit.value;
     const user = nickNameEdit.value;
     const email = emailEdit.value;
-    const birthDate = birthDateCreate.value;
+    const birthDateCreate = birthDateEdit.value;
 
     const updatedUsers = users.map((u) => {
         if (u.id === editUserId) {
@@ -65,7 +65,7 @@ formUserEdit.onsubmit = (e) => {
                 nombreApellido,
                 user,
                 email,
-                birthDate,
+                birthDateCreate,
             }
             return users;
         } else {
@@ -79,9 +79,6 @@ formUserEdit.onsubmit = (e) => {
     displayAllUsers();
     $('#editUserModal').modal('hide');
 }
-
-displayAllUsers(); 
-
 
 //DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
 const searchUserFormInput = document.getElementById('searchUserForm');
