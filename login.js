@@ -27,6 +27,7 @@ formCreate.onsubmit = (e) => {
     const email =  emailInput.value;
     const nombreApellido = nombreApellidoInput.value;
     const birthDateCreate = birthDateCreateInput.value;
+    const isSuspended = false;
     // Funcion para crear el id unico para cada usuario
     const generateId = function () {
         return '_' + Math.random().toString(36).substr(2, 9);
@@ -38,6 +39,7 @@ formCreate.onsubmit = (e) => {
         email,
         nombreApellido,
         birthDateCreate,
+        isSuspended,
         id: generateId(),
     })
     
@@ -60,7 +62,11 @@ formLogin.onsubmit = function (e) {
         localStorage.setItem('userLogged', JSON.stringify(findOutUser));
         alert('Bienvenido/a');
         window.location.href = './index.html';
-    }else{
+    } else if (isSuspended = true) {
+        alert ('Su usuario se encuentra suspendido por incumplimiento de normas internas');
+        alerta.classList.remove('d-none');
+    }
+    else {
         alerta.classList.remove('d-none');
     }
 }
