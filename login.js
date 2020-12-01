@@ -27,7 +27,7 @@ formCreate.onsubmit = (e) => {
     const email =  emailInput.value;
     const nombreApellido = nombreApellidoInput.value;
     const birthDateCreate = birthDateCreateInput.value;
-    //Funcion para crear el id unico para cada nota
+    // Funcion para crear el id unico para cada usuario
     const generateId = function () {
         return '_' + Math.random().toString(36).substr(2, 9);
     };
@@ -57,7 +57,12 @@ formLogin.onsubmit = function (e) {
         alert('Bienvenido/a😁');
         window.location.href = './admin.html';
     } else if (findOutUser) {
+<<<<<<< HEAD
         alert('Bienvenido/a😁');
+=======
+        localStorage.setItem('userLogged', JSON.stringify(findOutUser));
+        alert('Bienvenido/a');
+>>>>>>> e7990a2c8b7ff620bda7730bb8836342c0d99933
         window.location.href = './index.html';
     }else{
         alerta.classList.remove('d-none');

@@ -45,11 +45,8 @@
                     <a class="nav-link a-navbar" href="./contacto.html" target="_blank">Contacto</a>
                 </li>
             </ul>
-            <div id="btnLogin" class="drop-nav mr-5">
-                <a class="btn btn-secondary" href="./login.html" target="_blank" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
-            </div>
-            <div id="userAcount" class="d-none">
-                <i class="fas fa-user mx-2"></i><p>Constanza</p>
+            <div id="userNav" class="drop-nav mr-5">
+                
             </div>
         </div>
     </nav>
@@ -61,11 +58,8 @@
 
 
 
-
-
-
-    <!-- Carrousel-->
-    <div class="swiper-container">
+    <!-- Carrousel lg and md screen-->
+    <div class="swiper-container d-none d-md-block">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img src="./img/slider2.png">
@@ -75,6 +69,21 @@
             </div>
             <div class="swiper-slide">
                 <img src="./img/slider3.png">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carrousel sm screen-->
+    <div class="swiper-container d-md-none">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="./img/slid2sm.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/slid1sm.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="./img/slid3sm.png">
             </div>
         </div>
     </div>
@@ -264,23 +273,23 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-md-4 text-center">
-                <i class="fas fa-shipping-fast mb-3 service-icon"></i>
-                <h6>Envíos Gratis a todo el país</h6>
+                <i class="fas fa-shipping-fast mb-3 icon-services"></i>
+                <h6 class="h6-services">Envíos Gratis a todo el país</h6>
             </div>
-            <div class="col-md-4 text-center service-icon">
-                <i class="fas fa-percent mb-3"></i>
-                <h6>Ofertas todas las semanas</h6>
+            <div class="col-md-4 text-center">
+                <i class="fas fa-percent mb-3 icon-services"></i>
+                <h6 class="h6-services">Ofertas todas las semanas</h6>
             </div>
-            <div class="col-md-4 text-center service-icon">
-                <i class="fab fa-cc-visa mb-3"></i>
-                <h6>Operamos con todas las tarjetas de crédito</h6>
+            <div class="col-md-4 text-center">
+                <i class="fab fa-cc-visa mb-3 icon-services"></i>
+                <h6 class="h6-services">Operamos con todas las tarjetas de crédito</h6>
             </div>
         </div>
     </div>
     <div class="container mt-5">
         <div class=" row justify-content-center">
             <div class="col-md-2 ml-5">
-                <h6>Medios de Pago</h6>
+                <h6 class="titles-footer mt-3">Medios de Pago</h6>
             </div>
             <div class="col-md-10 ml-5">
                 <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png"
@@ -312,33 +321,33 @@
     </div>
         <div class="container my-5">
             <div class="row">
-                <div class="col-md-4 text-center -right mb-4">
-                    <h6>Quick Links</h6>
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Quick Links</h6>
                     <ul class="nav flex-column mt-4">
-                        <li class="nav-item"><a href="">Inicio</a></li>
-                        <li class="nav-item"><a href="">Nosotros</a></li>
-                        <li class="nav-item"><a href="">Productos</a></li>
-                        <li class="nav-item"><a href="">Tienda</a></li>
-                        <li class="nav-item"><a href="./contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Inicio</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Nosotros</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Productos</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Tienda</a></li>
+                        <li class="nav-item"><a class="quick-links" href="./contacto.html">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 text-center -right mb-4">
-                    <h6>Contactanos</h6>
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Contactanos</h6>
                     <div class="row justify-content-center mt-4">
                         <i class="fas fa-phone-volume mx-3 iconos-contacto"></i>
-                        <p>+543816987541</p>
+                        <p class="contact-p">+543816987541</p>
                     </div>
                     <div class="row justify-content-center">
                         <i class="fas fa-envelope-open mx-3 iconos-contacto"></i>
-                        <p>heyhey_ecomarket@gmail.com</p>
+                        <p class="contact-p">heyhey_ecomarket@gmail.com</p>
                     </div>
                     <div class="row justify-content-center">
                         <i class="fas fa-map-marker-alt mx-3 iconos-contacto"></i>
-                        <p>General Paz 500 - S.M de Tucumán</p>
+                        <p class="contact-p">General Paz 500 - S.M de Tucumán</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h6 class="mb-4">Seguinos en las Redes</h6>
+                    <h6 class="mb-4 titles-footer">Seguinos en las Redes</h6>
                     <a href="http://facebook.com" target="_blank" class="socialicon"><i
                             class="fab fa-facebook-square"></i></a>
                     <a href="http://instagram.com" target="_blank" class="socialicon"><i
