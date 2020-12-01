@@ -24,6 +24,7 @@ function displayUsers(users) {
             <td>${user.user}</td>
             <td>${user.birthDateCreate || ''}</td>
             <td>${user.email}</td>
+            <td>${user.isSuspended}</td>
             <td><button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#editUserModal" onclick="loadForm('${user.id}')"><i class="far fa-edit"></i></button>
             <td><button onclick="deleteUser('${user.id}')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
             <td><button onclick="suspendUser('${user.id}')" class="btn btn-info"><i class="fab fa-expeditedssl"></i></button></td>
@@ -48,6 +49,15 @@ function deleteUser(userId) {
     displayAllUsers();
 }
 
+function suspendUser(userId) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const updateUsers = users.map((user) => (
+        (user.id === userId) ? {...user, isSuspended:!user.isSuspended} : user
+    ))
+    const usersJson = JSON.stringify(updateUsers);
+    localStorage.setItem('users', usersJson);
+    displayAllUsers();
+}
 
 formUserEdit.onsubmit = (e) => {
     e.preventDefault()
@@ -55,7 +65,7 @@ formUserEdit.onsubmit = (e) => {
     const nombreApellido = userNameEdit.value;
     const user = nickNameEdit.value;
     const email = emailEdit.value;
-    const birthDate = birthDateEdit.value.value;
+    const birthDateCreate = birthDateEdit.value;
 
     const updatedUsers = users.map((u) => {
         if (u.id === editUserId) {
@@ -64,7 +74,7 @@ formUserEdit.onsubmit = (e) => {
                 nombreApellido,
                 user,
                 email,
-                birthDate,
+                birthDateCreate,
             }
             return users;
         } else {
@@ -79,18 +89,17 @@ formUserEdit.onsubmit = (e) => {
     $('#editUserModal').modal('hide');
 }
 
+//DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
+const searchUserFormInput = document.getElementById('searchUserForm');
+const searchUserInput = document.getElementById('searchUser');
+
+// MODIFICAR FUNCIÓN PARA BUSCAR USUARIOS! AGREGAR INPUT BUSQUEDA
+searchUserForm.onsubmit = (e) => {
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const term = searchUserInput.value.toLowerCase();
+    const filteredUsers = users.filter((u) => (
+        u.user.toLowerCase().includes(term) || u.nombreApellido.toLowerCase().includes(term)     ));
+        displayUsers(filteredUsers);
+    }
 displayAllUsers(); 
-
-
-
-//MODIFICAR FUNCIÓN PARA BUSCAR USUARIOS! AGREGAR INPUT BUSQUEDA
-// searchForm.onsubmit = (e) => {
-//     e.preventDefault();
-//     const users = JSON.parse(localStorage.getItem('users')) || [];
-//     const term = search.value.toLowerCase();
-//     console.log("term", term);
-//     const filteredUsers = users.filter((u) => (
-//         u.user.toLowerCase().includes(term) || u.nickname.toLowerCase().includes(term)
-//     ));
-//     displayUsers(filteredUsers);
-// }
