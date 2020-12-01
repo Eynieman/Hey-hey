@@ -59,12 +59,14 @@ formLogin.onsubmit = function (e) {
         alert('Bienvenido/a');
         window.location.href = './admin.html';
     } else if (findOutUser) {
+        if (findOutUser.isSuspended == true) {
+            alert ('Su usuario se encuentra suspendido por incumplimiento de normas internas');
+            alerta.classList.remove('d-none');
+            return;
+        }
         localStorage.setItem('userLogged', JSON.stringify(findOutUser));
         alert('Bienvenido/a');
         window.location.href = './index.html';
-    } else if (isSuspended = true) {
-        alert ('Su usuario se encuentra suspendido por incumplimiento de normas internas');
-        alerta.classList.remove('d-none');
     }
     else {
         alerta.classList.remove('d-none');

@@ -49,6 +49,15 @@ function deleteUser(userId) {
     displayAllUsers();
 }
 
+function suspendUser(userId) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const updateUsers = users.map((user) => (
+        (user.id === userId) ? {...user, isSuspended:!user.isSuspended} : user
+    ))
+    const usersJson = JSON.stringify(updateUsers);
+    localStorage.setItem('users', usersJson);
+    displayAllUsers();
+}
 
 formUserEdit.onsubmit = (e) => {
     e.preventDefault()

@@ -108,7 +108,6 @@ const uploadFormEdit = (productId) =>{
 }
 
 
-
 formEditProduct.onsubmit = (evento) =>{
     evento.preventDefault();
     const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -119,7 +118,6 @@ formEditProduct.onsubmit = (evento) =>{
     const priceProduct = priceEditProductIn.value;
     const imgProduct = imgEditProductIn.value;
     
-
     const updateProduct = products.map((producto) => (
         (producto.id === editProductId) ? {...producto, nameProduct, descriptionProduct, priceProduct, imgProduct} : producto
     ))
