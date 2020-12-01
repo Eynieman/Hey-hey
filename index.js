@@ -1,6 +1,8 @@
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
 const spaceCardsAdd = document.getElementById('spaceCardsAdd');
-
+//DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS EN EL CARRITO
+//
+const productosCart = document.getElementById('productosCart');
 //Traer los productos de local storage
 const products = JSON.parse(localStorage.getItem('products')) || [];
 
@@ -25,7 +27,7 @@ function createProduct() {
                         </p>
                             <div class="btn-group-m text-center fixed-bottom" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-dark btn-price" disabled>$${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary">Comprar <i class="fas fa-shopping-cart"></i></button>
+                                <button type="button" class="btn btn-secondary" onclick="agregarCarrito('${product.id}')">Comprar <i class="fas fa-shopping-cart"></i></button>
                             </div>
                     </div>
                 </div>
@@ -77,3 +79,24 @@ function logOut(){
     localStorage.removeItem('userLogged');
     location.reload();
 }
+
+//Agregar cosas al carrito
+function agregrarCarrito(productid) {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const tableCarrito = [];
+
+    for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+        const table = `
+        <td>
+        ${product.nameProduct}
+        </td>
+        <td>
+        ${product.priceProduct}
+        </td>
+        `;
+        tableCarrito.unshift(table);
+    }
+    productosCart.innerHTML = tableCarrito.join('')
+}
+agregrarCarrito();
