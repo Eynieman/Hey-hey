@@ -69,7 +69,7 @@ if (userLogged !== null){
     userNav.innerHTML =
     `
     <div id="btnLogin" class="">
-            <a class="btn btn-secondary" href="./login.html" target="_blank" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
+            <a class="btn btn-secondary" href="./login.html" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
     </div>
 
     `
