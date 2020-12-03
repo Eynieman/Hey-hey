@@ -56,12 +56,9 @@ formLogin.onsubmit = function (e) {
     const findOutUser = users.find((u) => u.user === user && u.password === password);
     const userAdmin = user === administrador.user && password === administrador.password;
     if (userAdmin) {
-        alert('Bienvenido/a😁');
+        alert('Bienvenido/a');
         window.location.href = './admin.html';
     } else if (findOutUser) {
-        alert('Bienvenido/a😁');
-
-
         if (findOutUser.isSuspended == true) {
             alert ('Su usuario se encuentra suspendido por incumplimiento de normas internas');
             alerta.classList.remove('d-none');
