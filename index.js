@@ -1,8 +1,9 @@
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
 const spaceCardsAdd = document.getElementById('spaceCardsAdd');
+
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS EN EL CARRITO
-//
 const productosCart = document.getElementById('productosCart');
+
 //Traer los productos de local storage
 const products = JSON.parse(localStorage.getItem('products')) || [];
 
@@ -80,7 +81,8 @@ function logOut(){
     location.reload();
 }
 
-//Agregar cosas al carrito
+//Agregar Productos al carrito
+
 function agregrarCarrito(productid) {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const tableCarrito = [];
