@@ -24,7 +24,7 @@ formCreate.onsubmit = (e) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = nickNameInput.value;
     const password = passwordCreateInput.value;
-    const email =  emailInput.value;
+    const email = emailInput.value;
     const nombreApellido = nombreApellidoInput.value;
     const birthDateCreate = birthDateCreateInput.value;
     const isSuspended = false;
