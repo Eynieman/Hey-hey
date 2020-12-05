@@ -18,14 +18,9 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="./Css/admin-style.css">
 
-
-
 <body>
 
-
-
     <div class="d-flex" id="wrapper">
-
         <!-- Sidebar -->
         <div class="bg-dark" id="sidebar-vertical">
             <div class="sidebar-heading">
@@ -49,7 +44,6 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom p-5">
                 <h2 class="text-light">Panel de Administración</h2>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -57,7 +51,6 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-lg-none ">
                         <li class="nav-item active">
@@ -70,7 +63,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <a class="btn btn-secondary btn-back-login" href="./index.html"><i class="fas fa-sign-out-alt"></i></a>
             </nav>
 
@@ -86,7 +78,6 @@
                                 Agregar Producto
                             </button>
                         </div>
-
                         <div class="col-m-6 mx-auto">
                             <form id="searchForm" class="form-inline my-2 my-lg-0">
                                 <input id="searchProductInput" class="form-control mr-sm-2" type="search" placeholder="Buscar"
@@ -100,7 +91,6 @@
                             </form>
                         </div>
                     </div>
-
                     <!-- Tabla de listado de usuarios -->
                     <table class="table table-striped table-responsive">
                         <thead>
@@ -118,7 +108,6 @@
                         </tbody>
                     </table>
                 </div>
-
                 <div id="usuarios" class="my-5 mx-3 collapse">
                     <h4>Usuarios</h4>
                     <hr>
@@ -157,8 +146,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Modal Create Product -->
     <div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -204,98 +191,88 @@
         </div>
     </div>
 
-<!-- Modal Edit Product -->
-<div class="modal fade" id="modalEditProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content modal-addProduct-style">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar un Producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="formEditProduct">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nombre</label>
-                        <input type="text" class="form-control" id="nameEditProduct" placeholder="Nombre del Producto"
-                            required maxlength="60">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Descripción</label>
-                        <textarea class="form-control" id="descriptionEditProduct" rows="3" required
-                            maxlength="200"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
+    <!-- Modal Edit Product -->
+    <div class="modal fade" id="modalEditProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-addProduct-style">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar un Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditProduct">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Nombre</label>
+                            <input type="text" class="form-control" id="nameEditProduct" placeholder="Nombre del Producto"
+                                required maxlength="60">
                         </div>
-                        <input type="number" class="form-control" id="priceEditProduct" placeholder="Precio" required
-                            maxlength="20">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Imagen</label>
-                        <input type="text" class="form-control" id="imgEditProduct"
-                            placeholder="Ingrese el link de la imagen" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-info my-3">Guardar</button>
-                        <button type="button" class="btn btn-secondary my-3" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Descripción</label>
+                            <textarea class="form-control" id="descriptionEditProduct" rows="3" required
+                                maxlength="200"></textarea>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" id="priceEditProduct" placeholder="Precio" required
+                                maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Imagen</label>
+                            <input type="text" class="form-control" id="imgEditProduct"
+                                placeholder="Ingrese el link de la imagen" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info my-3">Guardar</button>
+                            <button type="button" class="btn btn-secondary my-3" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal de edición de usuario -->
-<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="p-5" id="formUserEdit">
-                    <div class="form-group">
-                        <label class="float-left" for="usuario">
-                            Nombre y Apellido
-                        </label>
-                        <input type="text" id="userNameCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="float-left" for="usuario">
-                            Nickname
-                        </label>
-                        <input type="text" id="nicknameCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="email"> Correo </label>
-                        <input type="email" id="emailCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="birthDate"> Fecha de nacimiento </label>
-                        <input type="date" id="birthDateCreate" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
-                </form>
+    <!-- Modal de edición de usuario -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="p-5" id="formUserEdit">
+                        <div class="form-group">
+                            <label class="float-left" for="usuario">
+                                Nombre y Apellido
+                            </label>
+                            <input type="text" id="userNameCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="float-left" for="usuario">
+                                Nickname
+                            </label>
+                            <input type="text" id="nicknameCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="email"> Correo </label>
+                            <input type="email" id="emailCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="birthDate"> Fecha de nacimiento </label>
+                            <input type="date" id="birthDateCreate" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
-
-
-
-
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
