@@ -27,7 +27,6 @@
                     ¡Datos Inválidos, intente nuevamente!
                 </div>
                 <div class="form-group">
-
                     <label class="float-left label-style" for="usuario"> <span class="text-label">Nickname</span> <i
                             class="fas fa-user icon-color"></i></label>
 
@@ -47,19 +46,17 @@
                     Ingresar
                 </button>
                 <div class="create-login">
-                <h5>No tenes cuenta aún?</h5><a type="link" class="ml-3 create-button" data-toggle="modal" data-target="#modalCreateAccount"><b>Crear Cuenta</b></a>
-            </div>
+                    <h5>No tenes cuenta aún?</h5><a type="link" class="ml-3 create-button" data-toggle="modal" data-target="#modalCreateAccount"><b>Crear Cuenta</b></a>
+                </div>
+            </form>
         </div>
-        </form>
         </div>
     </section>
 
 
 
     <!-- Modal -->
-
-    <div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,76 +69,46 @@
                     <form class="p-5" id="formCreate">
                         <div class="form-group">
                             <label class="float-left" for="usuario">
-                                Usuario
+                                Nombre y Apellido
                             </label>
-                            <input type="text" id="userCreate" class="form-control" placeholder="Username" required>
+                            <input type="text" id="nombreApellido" class="form-control" required>
                         </div>
                         <div class="form-group mt-3">
                             <label class="float-left" for="password">
                                 Contraseña
                             </label>
-                            <input type="password" id="passwordCreate" class="form-control" placeholder="Password"
-                                required>
+                            <input type="password" id="passwordCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="float-left" for="usuario">
+                                Nickname
+                            </label>
+                            <input type="text" id="userCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="email"> Correo </label>
+                            <input type="email" id="emailCreate" class="form-control" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="birthDate"> Fecha de nacimiento </label>
+                            <input type="date" id="birthDateCreate" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
                     </form>
                 </div>
-<div class="modal fade" id="modalCreateAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cuenta</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="p-5" id="formCreate">
-                    <div class="form-group">
-                        <label class="float-left" for="usuario">
-                            Nombre y Apellido
-                        </label>
-                        <input type="text" id="nombreApellido" class="form-control" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="float-left" for="password">
-                            Contraseña
-                        </label>
-                        <input type="password" id="passwordCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="float-left" for="usuario">
-                            Nickname
-                        </label>
-                        <input type="text" id="userCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="email"> Correo </label>
-                        <input type="email" id="emailCreate" class="form-control" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label for="birthDate"> Fecha de nacimiento </label>
-                        <input type="date" id="birthDateCreate" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-success add-botons mt-4">Guardar</button>
-                </form>
             </div>
         </div>
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="./login.js"></script>
-
 
 </body>
 

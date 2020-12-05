@@ -89,7 +89,7 @@ formUserEdit.onsubmit = (e) => {
     $('#editUserModal').modal('hide');
 }
 
-//DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
+//DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE USUARIOS
 const searchUserFormInput = document.getElementById('searchUserForm');
 const searchUserInput = document.getElementById('searchUser');
 
