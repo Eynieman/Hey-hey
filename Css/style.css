@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Indie+Flower&family=Nerko+One&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
 /*-------------------- Navbar --------------------*/
 .tittle-navbar{
     font-family: 'Teko', sans-serif;
@@ -24,6 +28,23 @@
     font-size: 20px;
 }
 
+.btn-backToTop{
+    position: fixed;
+    right: 2rem;
+    bottom: 6rem;
+    z-index: 9999;
+}
+
+.btn-wssp{
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 9999;
+}
+
+.btn-size:hover{
+    transform: scale(0.8);
+}
 
 /*-------------------- Carrousel --------------------*/
 .swiper-container {
