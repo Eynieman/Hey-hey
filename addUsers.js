@@ -22,13 +22,22 @@ function displayUsers(users) {
     const rows = [];
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
+        let isSuspendedString = ''
+        if (user.isSuspended) {
+            isSuspendedString = 'Suspendido';
+        }
+        else {
+            isSuspendedString = 'Habilitado';
+        }
+
+        //let isSuspendedString = user.isSuspended ? 'Suspendido' : 'Habilitado';
         const tr = `
         <tr>
             <td>${user.nombreApellido}</td>
             <td>${user.user}</td>
             <td>${user.birthDateCreate || ''}</td>
             <td>${user.email}</td>
-            <td>${user.isSuspended}</td>
+            <td>${isSuspendedString}</td>
             <td><button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#editUserModal" onclick="loadForm('${user.id}')"><i class="far fa-edit"></i></button>
             <td><button onclick="deleteUser('${user.id}')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
             <td><button onclick="suspendUser('${user.id}')" class="btn btn-info"><i class="fab fa-expeditedssl"></i></button></td>
@@ -51,6 +60,7 @@ function deleteUser(userId) {
     userDel.classList.remove('d-none');
     localStorage.setItem('users', usersJson);
     displayAllUsers();
+    Ocultar();
 }
 
 function suspendUser(userId) {
@@ -61,7 +71,9 @@ function suspendUser(userId) {
     const usersJson = JSON.stringify(updateUsers);
     userSus.classList.remove('d-none');
     localStorage.setItem('users', usersJson);
+
     displayAllUsers();
+    Ocultar();
 }
 
 formUserEdit.onsubmit = (e) => {
@@ -93,6 +105,7 @@ formUserEdit.onsubmit = (e) => {
     displayAllUsers();
     $('#editUserModal').modal('hide');
     userMod.classList.remove('d-none');
+    Ocultar();
 }
 
 //DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE USUARIOS
@@ -109,3 +122,14 @@ searchUserForm.onsubmit = (e) => {
         displayUsers(filteredUsers);
     }
 displayAllUsers(); 
+
+// Funcion Ocultar para divs:
+function Ocultar() {
+    setTimeout(function () {
+        const alertas = $(".alert")
+        for (let i = 0; i < alertas.length; i++) {
+            const element = alertas[i];
+            element.classList.add('d-none');
+        }
+    }, 2000);
+}

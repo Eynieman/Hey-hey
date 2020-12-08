@@ -55,6 +55,7 @@ formAddProduct.onsubmit = (event) =>{
     formAddProduct.reset();
     $('#modalAddProduct').modal('hide');
     productAdd.classList.remove('d-none');
+    Ocultar();
 
     displayAllProducts();
 }
@@ -99,9 +100,20 @@ function deleteProduct(productId) {
     const filteredProducts = products.filter((product)=> product.id !== productId);
     localStorage.setItem('products', JSON.stringify(filteredProducts));
     productDel.classList.remove('d-none');
+    Ocultar();
     displayAllProducts();
 }
 
+// Funcion Ocultar para divs:
+function Ocultar() {
+    setTimeout(function () {
+        const alertas = $(".alert")
+        for (let i = 0; i < alertas.length; i++) {
+            const element = alertas[i];
+            element.classList.add('d-none');
+        }
+    }, 2000);
+}
 
 const uploadFormEdit = (productId) =>{
     const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -135,7 +147,7 @@ formEditProduct.onsubmit = (evento) =>{
     $('#modalEditProduct').modal('hide');
     productMod.classList.remove('d-none');
 
-
+    Ocultar();
     displayAllProducts();
 }
 
