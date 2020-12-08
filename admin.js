@@ -48,7 +48,7 @@ formAddProduct.onsubmit = (event) =>{
     event.preventDefault();
 
     //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [productsDefault];
+    const products = JSON.parse(localStorage.getItem('products')) || [];
 
     //Tomar los valores de los input del producto
     const nameProduct = nameProductInput.value;
@@ -79,14 +79,11 @@ formAddProduct.onsubmit = (event) =>{
 
 
 function createProduct(products) {
-console.log("🚀 ~ file: admin.js ~ line 82 ~ createProduct ~ products", products)
 
-    
     const trProducts = [];
-    const productsdefecto = products[0];
 
-    for (let i = 0; i < productsdefecto.length; i++) {
-        const product = productsdefecto[i];
+    for (let i = 0; i < products.length; i++) {
+        const product = products[i];
         const tr = `
         <tr>
             <th scope="row">${[i]}</th>
@@ -106,17 +103,14 @@ console.log("🚀 ~ file: admin.js ~ line 82 ~ createProduct ~ products", produc
         
         trProducts.unshift(tr);
     }
-    localStorage.setItem('products', JSON.stringify(productsdefecto));
+    localStorage.setItem('products', JSON.stringify(products));
     tableProducts.innerHTML = trProducts.join('');
 }
 displayAllProducts();
 
 function displayAllProducts() {
     //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    if (products === []) {
-            localStorage.setItem('products', JSON.stringify());
-        }
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
     createProduct(products);
 }
 
