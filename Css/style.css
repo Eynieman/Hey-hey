@@ -46,6 +46,11 @@ html{
     transform: scale(0.8);
 }
 
+.size-img-shopCart{
+    width: 50px;
+    height: 60px;
+}
+
 /*-------------------- Carrousel --------------------*/
 .swiper-container {
     overflow: hidden;

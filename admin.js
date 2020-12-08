@@ -53,6 +53,12 @@ formAddProduct.onsubmit = (event) =>{
     displayAllProducts();
 }
 
+//ARRAY PRODUCTOS HARDCODEADOS
+// const productsDefault = [ 
+//     {nameProduct:'Nueces', descriptionProduct:'Nueces', priceProduct:'120', imgProduct:'https://frutosare.com.ar/wp-content/uploads/2019/07/nuez-dorada.jpg'} 
+//     {}
+// ]
+
 function createProduct(products) {
     
     const trProducts = [];

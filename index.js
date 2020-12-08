@@ -16,19 +16,19 @@ function createProduct() {
         const product = products[i];
         const card = `
         <div class="card">
-                <div class="card-inner">
+                <div class="card-inner itemProduct">
                     <div class="card-front">
-                        <img src="${product.imgProduct}"
+                        <img class="imgProduct" src="${product.imgProduct}"
                             alt="">
                     </div>
                     <div class="card-back">
-                        <h3>${product.nameProduct}</h3>
+                        <h3 class="titleProduct">${product.nameProduct}</h3>
                         <p>
                             ${product.descriptionProduct}
                         </p>
                             <div class="btn-group-m text-center fixed-bottom" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-dark btn-price" disabled>$${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary" onclick="agregarCarrito('${product.id}')">Comprar <i class="fas fa-shopping-cart"></i></button>
+                                <button type="button" class="btn btn-dark btn-price priceProduct" disabled>$${product.priceProduct}</button>
+                                <button type="button" class="btn btn-secondary addToCart">Comprar <i class="fas fa-shopping-cart"></i></button>
                             </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ if (userLogged !== null){
             <i class="fas fa-user mx-2"></i>${userLogged.nombreApellido}
             </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <button class="dropdown-item">Carrito</button>
+            <button class="dropdown-item" data-toggle="modal" data-target="#cartModal">Carrito</button>
             <button type="button" class="dropdown-item" onclick="logOut()">Cerrar Sesión</button>
         </div>
     </div>
@@ -81,24 +81,57 @@ function logOut(){
     location.reload();
 }
 
-//Agregar Productos al carrito
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function agregrarCarrito(productid) {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const tableCarrito = [];
 
-    for (let i = 0; i < products.length; i++) {
-        const product = products[i];
-        const table = `
-        <td>
-        ${product.nameProduct}
-        </td>
-        <td>
-        ${product.priceProduct}
-        </td>
-        `;
-        tableCarrito.unshift(table);
-    }
-    productosCart.innerHTML = tableCarrito.join('')
+//CARRITO DE COMPRAS
+const tableCartProduct = document.getElementById('tableCartProduct');
+
+const addToCartButtons = document.querySelectorAll('.addToCart');
+    addToCartButtons.forEach(addToShopCartButtons =>
+    addToShopCartButtons.addEventListener('click', addToCartClick));
+
+function addToCartClick(event){
+    const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+    const button = event.target;
+    const itemProduct = button.closest('.itemProduct');
+
+    const titleProduct = itemProduct.querySelector('.titleProduct').textContent;
+    const priceProduct = itemProduct.querySelector('.priceProduct').textContent;
+    const imgProduct = itemProduct.querySelector('.imgProduct').src;
+    
+    productsCart.push({
+        titleProduct,
+        priceProduct,
+        imgProduct,
+    })
+
+    //Guardar el carrito de compras en localStorage.
+    localStorage.setItem('productsCart', JSON.stringify(productsCart));
+
+    addProductToShopCart(productsCart);
+
 }
-agregrarCarrito();
+
+function addProductToShopCart (productsCart) {
+    const trCartProduct = [];
+
+    for (let i = 0; i < productsCart.length; i++) {
+
+        const tr = `
+            <tr>
+                <td><img class="size-img-shopCart" src="${productsCart.imgProduct}" alt=""></td>
+                <td>${productsCart.titleProduct}</td>
+                <td>${productsCart.priceProduct}</td>
+                <td>Cantidad</td>
+                <td>
+                    <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </td>    
+            </tr>
+        `
+        trCartProduct.unshift(tr);
+    }
+
+    tableCartProduct.innerHTML = trCartProduct.join('');
+
+}
