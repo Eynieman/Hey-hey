@@ -81,24 +81,4 @@ function logOut(){
     location.reload();
 }
 
-//Agregar Productos al carrito
 
-function agregrarCarrito(productid) {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
-    const tableCarrito = [];
-
-    for (let i = 0; i < products.length; i++) {
-        const product = products[i];
-        const table = `
-        <td>
-        ${product.nameProduct}
-        </td>
-        <td>
-        ${product.priceProduct}
-        </td>
-        `;
-        tableCarrito.unshift(table);
-    }
-    productosCart.innerHTML = tableCarrito.join('')
-}
-agregrarCarrito();
