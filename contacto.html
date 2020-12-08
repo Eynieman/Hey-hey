@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--link fontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <!--Link css propio-->
+    <link rel="stylesheet" href="./Css/style.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+    <title>Contacto Hey hey! - Eco Market</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light p-2 fondo-navBar">
+        <a class="navbar-brand" href="./index.html">
+            <img src="./img/Hey hey - eco market - PNJ copia.png" class="rounded-circle ml-5" width="100" height="100"
+                alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item mx-3">
+                    <a class="nav-link a-navbar" href="./index.html#sectionNosotros">Hey-hey!</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link a-navbar" href="./index.html#collage">Collage</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link a-navbar" href="./index.html#sectionProductos">Market</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link a-navbar" href="./contacto.html" target="_blank">Contacto</a>
+                </li>
+            </ul>
+            <div class="drop-nav mr-5">
+                <a class="btn btn-secondary" href="./login.html" target="_blank" rel=""><i class="fas fa-user mx-2"></i>Mi Cuenta</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="container row">
+            <div class="col-6 mx-auto titulo-hey-contact-page">
+                <h1 class="mb-5">Hey hey! - Eco Market</h1>
+                <p class="lead">¿En que podemos ayudarte?</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div id="seccionContacto" class="mt-5">
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="title-nosotros">Contactanos</h4>
+                            <hr class="hr-products mb-5">
+                        </div>
+                    </div>
+                    <form class="m-2 font-contact-form" onsubmit="formularioEnviado()">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Nombre</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" 
+                                required data-validation-required-message="Ingrese su nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">E-mail</label>
+                            <input type="email" class="form-control" id="formGroupExampleInput2" 
+                                required data-validation-required-message="Ingrese su email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Selecciona el motivo de tu
+                                consulta</label>
+                            <select class="form-control" id="exampleFormControlSelect1" required>
+                                <option value="" disabled selected>Motivo de consulta</option>
+                                <option>Pedir un presupuesto</option>
+                                <option>Compra por mayor</option>
+                                <option>Consultar por un producto</option>
+                                <option>Envío</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Ingrese su consulta</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success mb-5">Enviar</button>
+                    </form>
+                </div>
+                <div class="col-md-6 mt-5">
+                    <div class="row m-2 mt-5 justify-content-center">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102299323881!2d-65.20782407770886!3d-26.83669836942554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0ee27797a5%3A0xdcd83f8cf19c9afd!2sGral.%20Paz%20500%2C%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1602881338092!5m2!1ses!2sar"
+                            width="500" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                    <a href="https://wa.link/8ie6en" target="_blank">
+                        <button class="btn btn-success border-rounded-circle mx-auto m-2 boton-whatsapp">
+                            <i class="fab fa-whatsapp text-white"></i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Quick Links</h6>
+                    <ul class="nav flex-column mt-4">
+                        <li class="nav-item"><a class="quick-links" href="">Inicio</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Nosotros</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Productos</a></li>
+                        <li class="nav-item"><a class="quick-links" href="">Tienda</a></li>
+                        <li class="nav-item"><a class="quick-links" href="./contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center border-div mb-4">
+                    <h6 class="titles-footer">Contactanos</h6>
+                    <div class="row justify-content-center mt-4">
+                        <i class="fas fa-phone-volume mx-3 iconos-contacto"></i>
+                        <p class="contact-p">+543816987541</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <i class="fas fa-envelope-open mx-3 iconos-contacto"></i>
+                        <p class="contact-p">heyhey_ecomarket@gmail.com</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <i class="fas fa-map-marker-alt mx-3 iconos-contacto"></i>
+                        <p class="contact-p">General Paz 500 - S.M de Tucumán</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h6 class="mb-4 titles-footer">Seguinos en las Redes</h6>
+                    <a href="http://facebook.com" target="_blank" class="socialicon"><i
+                            class="fab fa-facebook-square"></i></a>
+                    <a href="http://instagram.com" target="_blank" class="socialicon"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+    <div class="container-fluid footer">
+        <div class="container text-center text-light p-4">
+            Copyright © Hey hey! Eco-Market 2020 - Todos los derechos reservados.
+        </div>
+    </div>
+    </footer>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
