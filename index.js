@@ -1,12 +1,11 @@
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
 const spaceCardsAdd = document.getElementById('spaceCardsAdd');
-
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS EN EL CARRITO
 const productosCart = document.getElementById('productosCart');
-
 //Traer los productos de local storage
 const products = JSON.parse(localStorage.getItem('products')) || [];
-
+//TABLA DEL MODAL CARRITO
+const tableCartProduct = document.getElementById('tableCartProduct');
 
 function createProduct() {
     //Traer los productos de local storage
@@ -40,6 +39,8 @@ function createProduct() {
         
     }
     spaceCardsAdd.innerHTML = cardsProducts.join('');
+    const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+    addProductToShopCart(productsCart);
 }
 createProduct();
 
@@ -86,12 +87,21 @@ function logOut(){
 
 
 //CARRITO DE COMPRAS
-const tableCartProduct = document.getElementById('tableCartProduct');
+
 
 const addToCartButtons = document.querySelectorAll('.addToCart');
     addToCartButtons.forEach(addToShopCartButtons =>
     addToShopCartButtons.addEventListener('click', addToCartClick));
 
+
+function alertAddProduct() {
+    alertaProducto.classList.remove('d-none');
+}
+function Ocultar() {
+    setTimeout(function () {
+        $(".alert").hide(3000);
+    }, 900);
+}
 function addToCartClick(event){
     const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
     const button = event.target;
@@ -110,6 +120,8 @@ function addToCartClick(event){
     //Guardar el carrito de compras en localStorage.
     localStorage.setItem('productsCart', JSON.stringify(productsCart));
 
+    alertAddProduct();
+    Ocultar();
     addProductToShopCart(productsCart);
 
 }
@@ -118,12 +130,12 @@ function addProductToShopCart (productsCart) {
     const trCartProduct = [];
 
     for (let i = 0; i < productsCart.length; i++) {
-
+        const product = productsCart[i];
         const tr = `
             <tr>
-                <td><img class="size-img-shopCart" src="${productsCart.imgProduct}" alt=""></td>
-                <td>${productsCart.titleProduct}</td>
-                <td>${productsCart.priceProduct}</td>
+                <td><img class="size-img-shopCart" src="${product.imgProduct}" alt=""></td>
+                <td>${product.titleProduct}</td>
+                <td>${product.priceProduct}</td>
                 <td>Cantidad</td>
                 <td>
                     <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
@@ -135,4 +147,9 @@ function addProductToShopCart (productsCart) {
 
     tableCartProduct.innerHTML = trCartProduct.join('');
 
+}
+
+//VACIAR CARRITO
+function emptyCart(){
+    localStorage.removeItem('productsCart');
 }

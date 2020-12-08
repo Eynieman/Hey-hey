@@ -238,6 +238,9 @@
             <h1 class="title-nosotros">Productos</h1>     
             <hr class="hr-products mb-5"></h1>
         </div>
+        <div id="alertaProducto" class="container alert alert-secondary d-none">
+                ¡Producto agregado al carrito!
+        </div>
         <div class="cards mt-5" id="spaceCardsAdd">
 
         </div>
@@ -249,6 +252,9 @@
                 Ir al carrito<i class="fas fa-shopping-cart"></i>
             </button>
         </div>
+
+
+        
 
         <!-- Modal del carrito -->
         <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -277,7 +283,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Vaciar Carrito</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" onclick="emptyCart()">Vaciar Carrito</button>
                         <button type="button" class="btn btn-outline-primary">Comprar</button>
                     </div>
                 </div>
