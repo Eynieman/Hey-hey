@@ -7,6 +7,7 @@ const productosCart = document.getElementById('productosCart');
 //Traer los productos de local storage
 const products = JSON.parse(localStorage.getItem('products')) || [];
 
+
 function createProduct() {
     //Traer los productos de local storage
     const products = JSON.parse(localStorage.getItem('products')) || [];

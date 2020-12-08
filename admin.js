@@ -19,12 +19,36 @@ const imgEditProductIn = document.getElementById('imgEditProduct');
 const searchForm = document.getElementById('searchForm');
 const searchProductInput = document.getElementById('searchProductInput');
 
+
+//ARRAY PRODUCTOS HARDCODEADOS
+const productsDefault = [ 
+    {nameProduct:'almendras', descriptionProduct:'almendras', priceProduct:'120', imgProduct:'https://frutosare.com.ar/wp-content/uploads/2019/07/nuez-dorada.jpg', id:'productDefault1'}, 
+    {nameProduct:'Aceite de Coco', descriptionProduct:'Aceite de Coco', priceProduct:'130', imgProduct:'https://www.culturaalimentaria.com.ar/wp-content/uploads/2016/08/mk.jpg', id:'productDefault2'},
+    {nameProduct:'Yogurt Griego', descriptionProduct:'Yogurt Griego', priceProduct:'150', imgProduct:'https://images.lider.cl/wmtcl?source=url[file:/productos/497326a.jpg]&sink', id:'productDefault3'},
+    {nameProduct:'Leche de Almendras', descriptionProduct:'Leche de Almendras', priceProduct:'110', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/942/490/products/diseno-sin-titulo-871-adfadedab943e1f32915650200181711-640-0.png', id:'productDefault4'},
+    {nameProduct:'Chips de Mandioca', descriptionProduct:'Chips de Mandioca', priceProduct:'80', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/837/566/products/mandioca-frita-11-330fe41a015343e3b815873637387875-640-01-f859b58a7bffa3a47d15916620869643-640-0.jpg', id:'productDefault5'},
+    {nameProduct:'Arroz Integral', descriptionProduct:'Arroz Integral', priceProduct:'180', imgProduct:'https://supermercado.carrefour.com.ar/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/7/7/7790070411914_01.jpg', id:'productDefault6'},
+    {nameProduct:'Pasta de Maní', descriptionProduct:'Pasta de Maní', priceProduct:'100', imgProduct:'https://www.casa-segal.com/wp-content/uploads/2020/10/pasta-mani-king-485g-insumos-de-resposteria-reposteria-casa-segal-mendoza.png', id:'productDefault7'},
+    {nameProduct:'Dulce de Leche', descriptionProduct:'Dulce de Leche', priceProduct:'110', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/001/163/250/products/beepure-dulce-de-leche-sin-azucar1-862b3fdacf20bd0d3016007978169527-1024-10241-851f71cfbc626712dc16009041190775-640-0.jpg', id:'productDefault8'},
+    {nameProduct:'Aceite de Oliva', descriptionProduct:'Aceite de Oliva', priceProduct:'190', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/942/490/products/capn-acks-5th-birthday-51-399690d571e305259115524962503353-640-0.png', id:'productDefault9'},
+]
+
+// function displayProductsDefault() {
+//     const products = JSON.parse(localStorage.getItem('products')) || [];
+
+//         if (products === []) {
+//         products.push(productsDefault);
+//         }
+//         localStorage.setItem('products', JSON.stringify(products));
+// }
+// displayProductsDefault();
+
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
     event.preventDefault();
 
     //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || [productsDefault];
 
     //Tomar los valores de los input del producto
     const nameProduct = nameProductInput.value;
@@ -53,18 +77,16 @@ formAddProduct.onsubmit = (event) =>{
     displayAllProducts();
 }
 
-//ARRAY PRODUCTOS HARDCODEADOS
-// const productsDefault = [ 
-//     {nameProduct:'Nueces', descriptionProduct:'Nueces', priceProduct:'120', imgProduct:'https://frutosare.com.ar/wp-content/uploads/2019/07/nuez-dorada.jpg'} 
-//     {}
-// ]
 
 function createProduct(products) {
+console.log("🚀 ~ file: admin.js ~ line 82 ~ createProduct ~ products", products)
+
     
     const trProducts = [];
+    const productsdefecto = products[0];
 
-    for (let i = 0; i < products.length; i++) {
-        const product = products[i];
+    for (let i = 0; i < productsdefecto.length; i++) {
+        const product = productsdefecto[i];
         const tr = `
         <tr>
             <th scope="row">${[i]}</th>
@@ -84,7 +106,7 @@ function createProduct(products) {
         
         trProducts.unshift(tr);
     }
-    
+    localStorage.setItem('products', JSON.stringify(productsdefecto));
     tableProducts.innerHTML = trProducts.join('');
 }
 displayAllProducts();
@@ -92,6 +114,9 @@ displayAllProducts();
 function displayAllProducts() {
     //Traer los productos de local storage
     const products = JSON.parse(localStorage.getItem('products')) || [];
+    if (products === []) {
+            localStorage.setItem('products', JSON.stringify());
+        }
     createProduct(products);
 }
 
