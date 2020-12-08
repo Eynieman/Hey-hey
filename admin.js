@@ -19,6 +19,11 @@ const imgEditProductIn = document.getElementById('imgEditProduct');
 const searchForm = document.getElementById('searchForm');
 const searchProductInput = document.getElementById('searchProductInput');
 
+//DECLARACIÓN DE VARIABLES PARA ALERTAS DE AGREGO/MODIFICO/ELIMINO PRODUCTOS
+const productAdd = document.getElementById('productAdd');
+const productMod = document.getElementById('productMod');
+const productDel = document.getElementById('productDel');
+
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
     event.preventDefault();
@@ -47,9 +52,10 @@ formAddProduct.onsubmit = (event) =>{
 
     ////Guardar lista de usuarios en localStorage.
     localStorage.setItem('products', JSON.stringify(products));
-    alert('Su producto se guardó con correctamente')
     formAddProduct.reset();
     $('#modalAddProduct').modal('hide');
+    productAdd.classList.remove('d-none');
+
     displayAllProducts();
 }
 
@@ -78,7 +84,6 @@ function createProduct(products) {
         
         trProducts.unshift(tr);
     }
-    
     tableProducts.innerHTML = trProducts.join('');
 }
 displayAllProducts();
@@ -93,6 +98,7 @@ function deleteProduct(productId) {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const filteredProducts = products.filter((product)=> product.id !== productId);
     localStorage.setItem('products', JSON.stringify(filteredProducts));
+    productDel.classList.remove('d-none');
     displayAllProducts();
 }
 
@@ -127,6 +133,9 @@ formEditProduct.onsubmit = (evento) =>{
 
     formEditProduct.reset();
     $('#modalEditProduct').modal('hide');
+    productMod.classList.remove('d-none');
+
+
     displayAllProducts();
 }
 

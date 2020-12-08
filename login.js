@@ -3,6 +3,8 @@ const formLogin = document.getElementById('formLogin');
 const userInput = document.getElementById('user');
 const passwordInput = document.getElementById('password');
 const alerta = document.getElementById('alerta');
+const alertaIn = document.getElementById('alertaIn');
+const userSuspended = document.getElementById('userSuspended');
 const userAcount = document.getElementById('userAcount');
 
 //USER ADMIN
@@ -56,16 +58,15 @@ formLogin.onsubmit = function (e) {
     const findOutUser = users.find((u) => u.user === user && u.password === password);
     const userAdmin = user === administrador.user && password === administrador.password;
     if (userAdmin) {
-        alert('Bienvenido/a');
+        alertaIn.classList.remove('d-none');
         window.location.href = './admin.html';
     } else if (findOutUser) {
         if (findOutUser.isSuspended == true) {
-            alert ('Su usuario se encuentra suspendido por incumplimiento de normas internas');
-            alerta.classList.remove('d-none');
+            userSuspended.classList.remove('d-none');
             return;
         }
         localStorage.setItem('userLogged', JSON.stringify(findOutUser));
-        alert('Bienvenido/a');
+        alertaIn.classList.remove('d-none');
         window.location.href = './index.html';
     }
     else {

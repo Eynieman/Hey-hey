@@ -3,6 +3,10 @@ const nickNameEdit = document.getElementById('nicknameCreate');
 const emailEdit = document.getElementById('emailCreate');
 const birthDateEdit = document.getElementById('birthDateCreate');
 
+//DECLARACIÓN DE VARIABLES PARA ALERTAS DE MODIFICO/ELIMINO/SUSPENDO USUARIOS
+const userMod = document.getElementById('userMod');
+const userDel = document.getElementById('userDel');
+const userSus = document.getElementById('userSus');
 
 const loadForm = (userId) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -44,7 +48,7 @@ function deleteUser(userId) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const filteredUsers = users.filter((user) => user.id !== userId);
     const usersJson = JSON.stringify(filteredUsers);
-    alert("Usuario borrado!");
+    userDel.classList.remove('d-none');
     localStorage.setItem('users', usersJson);
     displayAllUsers();
 }
@@ -55,6 +59,7 @@ function suspendUser(userId) {
         (user.id === userId) ? {...user, isSuspended:!user.isSuspended} : user
     ))
     const usersJson = JSON.stringify(updateUsers);
+    userSus.classList.remove('d-none');
     localStorage.setItem('users', usersJson);
     displayAllUsers();
 }
@@ -87,6 +92,7 @@ formUserEdit.onsubmit = (e) => {
     formUserEdit.reset();
     displayAllUsers();
     $('#editUserModal').modal('hide');
+    userMod.classList.remove('d-none');
 }
 
 //DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE USUARIOS
