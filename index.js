@@ -12,6 +12,7 @@ const totalShopCart = document.getElementById('totalShopCart');
 //BOTON BORRAR PRODUCTO DEL CARRITO
 const btnDeleteProductCart = document.getElementById('btnDeleteProductCart');
 
+
 function createProduct() {
     //Traer los productos de local storage
     const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -184,4 +185,15 @@ function deleteProductCart(productId) {
 function emptyCart(){
     localStorage.removeItem('productsCart');
     showProducts([]);
+}
+
+
+//CANTIDAD DE PRODUCTOS
+const inputQuantity = document.querySelector('.input-cantidad');
+inputQuantity.addEventListener('change', quantityChanged);
+
+function quantityChanged(event) {
+    const input = event.target;
+    input.value <= 0 ? (input.value = 1) : null;
+    updateShopTotal();
 }
