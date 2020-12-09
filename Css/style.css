@@ -259,6 +259,11 @@ html{
     font-weight: 800;
 }
 
+.input-cantidad{
+    width: 40px;
+    background-color: rgb(219, 218, 218);
+    border-color:rgb(219, 218, 218);
+}
 
 
 /*-------------------- Footer --------------------*/

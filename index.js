@@ -1,3 +1,4 @@
+
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS
 const spaceCardsAdd = document.getElementById('spaceCardsAdd');
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS EN EL CARRITO
@@ -6,6 +7,10 @@ const productosCart = document.getElementById('productosCart');
 const products = JSON.parse(localStorage.getItem('products')) || [];
 //TABLA DEL MODAL CARRITO
 const tableCartProduct = document.getElementById('tableCartProduct');
+//TOTAL PRODUCTOS MODAL CARRITO
+const totalShopCart = document.getElementById('totalShopCart');
+//BOTON BORRAR PRODUCTO DEL CARRITO
+const btnDeleteProductCart = document.getElementById('btnDeleteProductCart');
 
 function createProduct() {
     //Traer los productos de local storage
@@ -20,6 +25,7 @@ function createProduct() {
                     <div class="card-front">
                         <img class="imgProduct" src="${product.imgProduct}"
                             alt="">
+                            <p class="d-none idProduct">${product.id}</p>
                     </div>
                     <div class="card-back">
                         <h3 class="titleProduct">${product.nameProduct}</h3>
@@ -28,7 +34,7 @@ function createProduct() {
                         </p>
                             <div class="btn-group-m text-center fixed-bottom" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-dark btn-price priceProduct" disabled>$${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary addToCart">Comprar <i class="fas fa-shopping-cart"></i></button>
+                                <button type="button" class="btn btn-secondary addToCart">Comprar<i class="fas fa-shopping-cart"></i></button>
                             </div>
                     </div>
                 </div>
@@ -40,7 +46,7 @@ function createProduct() {
     }
     spaceCardsAdd.innerHTML = cardsProducts.join('');
     const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
-    addProductToShopCart(productsCart);
+    showProducts(productsCart);
 }
 createProduct();
 
@@ -110,11 +116,14 @@ function addToCartClick(event){
     const titleProduct = itemProduct.querySelector('.titleProduct').textContent;
     const priceProduct = itemProduct.querySelector('.priceProduct').textContent;
     const imgProduct = itemProduct.querySelector('.imgProduct').src;
+    const idProduct = itemProduct.querySelector('.idProduct').textContent;
     
+
     productsCart.push({
         titleProduct,
         priceProduct,
         imgProduct,
+        idProduct,
     })
 
     //Guardar el carrito de compras en localStorage.
@@ -122,11 +131,12 @@ function addToCartClick(event){
 
     alertAddProduct();
     Ocultar();
-    addProductToShopCart(productsCart);
+    showProducts(productsCart);
+    updateShopTotal();
 
 }
 
-function addProductToShopCart (productsCart) {
+function showProducts (productsCart) {
     const trCartProduct = [];
 
     for (let i = 0; i < productsCart.length; i++) {
@@ -136,9 +146,9 @@ function addProductToShopCart (productsCart) {
                 <td><img class="size-img-shopCart" src="${product.imgProduct}" alt=""></td>
                 <td>${product.titleProduct}</td>
                 <td>${product.priceProduct}</td>
-                <td>Cantidad</td>
+                <td><input id="inputQuantity" class="input-cantidad" type="number" value="1"></td>
                 <td>
-                    <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteProductCart('${product.idProduct}')"><i class="fas fa-trash-alt"></i></button>
                 </td>    
             </tr>
         `
@@ -146,10 +156,32 @@ function addProductToShopCart (productsCart) {
     }
 
     tableCartProduct.innerHTML = trCartProduct.join('');
+    updateShopTotal();
+}
 
+function updateShopTotal() {
+    let total = 0;
+    const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+    
+    productsCart.forEach((product)=>{
+        const productPrice = product.priceProduct;
+        const numerPrice = parseFloat(productPrice.replace('$', ''));
+        const inputQuantity = parseFloat(document.getElementById('inputQuantity').value);
+        total = total + (numerPrice*inputQuantity);
+    })
+    totalShopCart.innerHTML = `${total}`;
+}
+
+//BORRAR PRODUCTO DEL CARRITO
+function deleteProductCart(productId) {
+    const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+    const filteredProductsCart = productsCart.filter((productCart)=> productCart.idProduct !== productId);
+    localStorage.setItem('productsCart', JSON.stringify(filteredProductsCart));
+    showProducts(filteredProductsCart);
 }
 
 //VACIAR CARRITO
 function emptyCart(){
     localStorage.removeItem('productsCart');
+    showProducts([]);
 }
