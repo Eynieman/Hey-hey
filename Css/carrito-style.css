@@ -1,0 +1,100 @@
+body {
+    background-image: url(https://image.freepik.com/foto-gratis/pared-ladrillo-pintado-blanco_1194-7526.jpg);
+    background-size: 100%;
+
+}
+
+.tittle-navbar {
+    font-family: "Teko", sans-serif;
+    font-size: 20px;
+}
+.fondo-navBar {
+    background-color: #02681ac4;
+}
+.a-navbar {
+    color: beige !important;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.3rem;
+}
+.a-navbar:hover {
+    box-shadow: 45px 25px 25px transparent;
+    transform: translate(3px, 3px);
+    transition: 0.5s;
+}
+
+.drop-nav {
+    font-family: "Nerko One", cursive;
+    font-size: 20px;
+}
+
+.btn-backToTop {
+    position: fixed;
+    right: 2rem;
+    bottom: 6rem;
+    z-index: 9999;
+}
+
+.btn-wssp {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 9999;
+}
+
+.btn-size:hover {
+    transform: scale(0.8);
+}
+
+.title-nosotros {
+    font-family: "Fredoka One", cursive;
+    font-size: 3rem;
+}
+
+.login-style {
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.label-style {
+    color: black;
+}
+.input-style {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 3px solid yellowgreen;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    caret-color: yellowgreen;
+}
+
+.envio{
+    background-color: yellowgreen;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+h2{
+    font-family: "Teko", sans-serif;
+}
+
+.card-tarjeta{
+    border: none;
+}
+
+
+.footer{
+    background-color: #006711;
+    height: 6rem;
+    position: relative;
+    bottom: 0;
+}
+
+.img-hey{
+    left: 600px;
+}
