@@ -28,7 +28,7 @@ function createProduct() {
                         </p>
                             <div class="btn-group-m text-center fixed-bottom" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-dark btn-price" disabled>$${product.priceProduct}</button>
-                                <button type="button" class="btn btn-secondary" onclick="agregarCarrito('${product.id}')">Comprar <i class="fas fa-shopping-cart"></i></button>
+                                <button type="button" class="btn btn-secondary" onclick="agregrarCarrito('${product.id}')">Comprar <i class="fas fa-shopping-cart"></i></button>
                             </div>
                     </div>
                 </div>
@@ -83,22 +83,37 @@ function logOut(){
 
 //Agregar Productos al carrito
 
-function agregrarCarrito(productid) {
+function agregrarCarrito() {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const tableCarrito = [];
 
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
         const table = `
-        <td>
-        ${product.nameProduct}
-        </td>
-        <td>
-        ${product.priceProduct}
-        </td>
+        <tr>
+            <td>
+                ${product.nameProduct}
+            </td>
+            <td>
+                ${product.priceProduct}
+            </td>
+            <td>
+                <button class="btn btn-sm btn-danger" onclick="deleteCartProducts('${product.id}')">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+        </td>   
+        <tr>
         `;
         tableCarrito.unshift(table);
     }
     productosCart.innerHTML = tableCarrito.join('')
 }
 agregrarCarrito();
+
+//Borrar productos del carrito
+function deleteCartProducts(productId) {
+    const productosCart = JSON.parse(localStorage.getItem('products')) || [];
+    const filteredCartProducts = productosCart.filter((productId)=>products !== productId);
+    localStorage.setItem('products', JSON.stringify(filteredCartProducts));
+}
+deleteCartProducts();
