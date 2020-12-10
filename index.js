@@ -96,12 +96,6 @@ function logOut(){
 //CARRITO DE COMPRAS
 
 
-const addToCartButtons = 
-    document.querySelectorAll('.addToCart');
-    addToCartButtons.forEach(addToShopCartButtons =>
-    addToShopCartButtons.addEventListener('click', addToCartClick)
-    );
-
 function alertAddProduct() {
     alertaProducto.classList.remove('d-none');
 }
@@ -144,6 +138,7 @@ function addToCartClick(event){
     // Después de cargarse la tabla, se cargan los listeners de los inputs.
     addQuantityChangeEvents();
     updateShopTotal();
+    incraseQuantity (idProduct);
 }
 
 function showProducts (productsCart) {
@@ -200,20 +195,46 @@ function emptyCart(){
 //CANTIDAD DE PRODUCTOS
 
 function addQuantityChangeEvents() {
-    const inputQuantities = document.querySelectorAll('.input-cantidad');
-    for (const input of inputQuantities ) {
-        input.addEventListener('change', quantityChanged);
-    }
-    
     function quantityChanged(event) {
         const input = event.target;
         input.value <= 0 ? (input.value = 1) : null;
         updateShopTotal();
     }
+    const inputQuantities = document.querySelectorAll('.input-cantidad');
+    for (const input of inputQuantities ) {
+        input.addEventListener('change', quantityChanged);
+    }
 }
 
+//VAIDACIÓN PARA AUMENTAR LA CANTIDAD EN CASO DE PRODUCTO REPETIDO
+
+function incraseQuantity (idProduct) {
+    const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+
+    for (let i = 0; i < productsCart.length; i++) {
+        if (productsCart[i].idProduct === idProduct){
+        console.log("🚀 ~ file: index.js ~ line 216 ~ incraseQuantity ~ productsCart[i].idProduct", productsCart[i].idProduct)
+            
+
+        }
+    }
+}
+
+// AGREGAR PRODUCTOS AL CARRITO
+function addToCartClickEvents() {
+    const addToCartButtons = document.querySelectorAll('.addToCart');
+    addToCartButtons.forEach((addToShopCartButtons) =>
+        addToShopCartButtons.addEventListener('click', addToCartClick)
+    );
+}
+
+
+
+
+
 createProduct();
+addToCartClickEvents();
 showProducts(JSON.parse(localStorage.getItem('productsCart')) || []);
 addQuantityChangeEvents();
-
+incraseQuantity ();
 
