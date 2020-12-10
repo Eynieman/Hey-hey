@@ -8,6 +8,9 @@ const userMod = document.getElementById('userMod');
 const userDel = document.getElementById('userDel');
 const userSus = document.getElementById('userSus');
 
+const userSearch = document.getElementById('userSearch');
+
+
 const loadForm = (userId) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find((u) => u.id === userId);
@@ -119,6 +122,8 @@ searchUserForm.onsubmit = (e) => {
     const term = searchUserInput.value.toLowerCase();
     const filteredUsers = users.filter((u) => (
         u.user.toLowerCase().includes(term) || u.nombreApellido.toLowerCase().includes(term)     ));
+        userSearch.classList.remove('d-none');
+        Ocultar();
         displayUsers(filteredUsers);
     }
 displayAllUsers(); 

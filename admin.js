@@ -18,6 +18,8 @@ const imgEditProductIn = document.getElementById('imgEditProduct');
 //DECLARACIÓN DE VARIABLES PARA LA BÚSQUEDA DE PRODUCTOS
 const searchForm = document.getElementById('searchForm');
 const searchProductInput = document.getElementById('searchProductInput');
+const productSearch = document.getElementById('productSearch');
+
 
 //DECLARACIÓN DE VARIABLES PARA ALERTAS DE AGREGO/MODIFICO/ELIMINO PRODUCTOS
 const productAdd = document.getElementById('productAdd');
@@ -66,9 +68,10 @@ function createProduct(products) {
 
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
+        //<th scope="row">${[i]}</th>
         const tr = `
         <tr>
-            <th scope="row">${[i]}</th>
+            <td><img class="size-img-ShopCart" src="${product.imgProduct}" alt=""></td>
             <td>${product.nameProduct}</td>
             <td>${product.descriptionProduct}</td>
             <td>${product.priceProduct}</td>
@@ -146,7 +149,6 @@ formEditProduct.onsubmit = (evento) =>{
     formEditProduct.reset();
     $('#modalEditProduct').modal('hide');
     productMod.classList.remove('d-none');
-
     Ocultar();
     displayAllProducts();
 }
@@ -159,5 +161,7 @@ formEditProduct.onsubmit = (evento) =>{
         product.nameProduct.toLowerCase().includes(term.toLowerCase())
         ));
         searchForm.reset();
+        productSearch.classList.remove('d-none');
+        Ocultar();
         createProduct(filteredProducts);    
 };
