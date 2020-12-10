@@ -96,19 +96,26 @@ function logOut(){
 //CARRITO DE COMPRAS
 
 
-const addToCartButtons = document.querySelectorAll('.addToCart');
+const addToCartButtons = 
+    document.querySelectorAll('.addToCart');
     addToCartButtons.forEach(addToShopCartButtons =>
-    addToShopCartButtons.addEventListener('click', addToCartClick));
-
+    addToShopCartButtons.addEventListener('click', addToCartClick)
+    );
 
 function alertAddProduct() {
     alertaProducto.classList.remove('d-none');
 }
+
 function Ocultar() {
     setTimeout(function () {
-        $(".alert").hide(3000);
-    }, 900);
+        const alertas = $(".alert")
+        for (let i = 0; i < alertas.length; i++) {
+            const element = alertas[i];
+            element.classList.add('d-none');
+        }
+    }, 1000);
 }
+
 function addToCartClick(event){
     const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
     const button = event.target;
@@ -133,8 +140,10 @@ function addToCartClick(event){
     alertAddProduct();
     Ocultar();
     showProducts(productsCart);
+    
+    // Después de cargarse la tabla, se cargan los listeners de los inputs.
+    addQuantityChangeEvents();
     updateShopTotal();
-
 }
 
 function showProducts (productsCart) {
@@ -147,7 +156,7 @@ function showProducts (productsCart) {
                 <td><img class="size-img-shopCart" src="${product.imgProduct}" alt=""></td>
                 <td>${product.titleProduct}</td>
                 <td>${product.priceProduct}</td>
-                <td><input id="inputQuantity" class="input-cantidad" type="number" value="1"></td>
+                <td><input id="inputQuantity${product.idProduct}" class="input-cantidad" type="number" value="1"></td>
                 <td>
                     <button class="btn btn-sm btn-danger" onclick="deleteProductCart('${product.idProduct}')"><i class="fas fa-trash-alt"></i></button>
                 </td>    
@@ -167,7 +176,7 @@ function updateShopTotal() {
     productsCart.forEach((product)=>{
         const productPrice = product.priceProduct;
         const numerPrice = parseFloat(productPrice.replace('$', ''));
-        const inputQuantity = parseFloat(document.getElementById('inputQuantity').value);
+        const inputQuantity = parseFloat(document.getElementById(`inputQuantity${product.idProduct}`).value);
         total = total + (numerPrice*inputQuantity);
     })
     totalShopCart.innerHTML = `${total}`;
@@ -189,11 +198,22 @@ function emptyCart(){
 
 
 //CANTIDAD DE PRODUCTOS
-const inputQuantity = document.querySelector('.input-cantidad');
-inputQuantity.addEventListener('change', quantityChanged);
 
-function quantityChanged(event) {
-    const input = event.target;
-    input.value <= 0 ? (input.value = 1) : null;
-    updateShopTotal();
+function addQuantityChangeEvents() {
+    const inputQuantities = document.querySelectorAll('.input-cantidad');
+    for (const input of inputQuantities ) {
+        input.addEventListener('change', quantityChanged);
+    }
+    
+    function quantityChanged(event) {
+        const input = event.target;
+        input.value <= 0 ? (input.value = 1) : null;
+        updateShopTotal();
+    }
 }
+
+createProduct();
+showProducts(JSON.parse(localStorage.getItem('productsCart')) || []);
+addQuantityChangeEvents();
+
+
