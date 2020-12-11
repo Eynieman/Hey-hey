@@ -120,7 +120,6 @@ function addToCartClick(event){
     const imgProduct = itemProduct.querySelector('.imgProduct').src;
     const idProduct = itemProduct.querySelector('.idProduct').textContent;
     
-
     productsCart.push({
         titleProduct,
         priceProduct,
@@ -138,6 +137,7 @@ function addToCartClick(event){
     // Después de cargarse la tabla, se cargan los listeners de los inputs.
     addQuantityChangeEvents();
     updateShopTotal();
+
     incraseQuantity (idProduct);
 }
 
@@ -206,16 +206,17 @@ function addQuantityChangeEvents() {
     }
 }
 
-//VAIDACIÓN PARA AUMENTAR LA CANTIDAD EN CASO DE PRODUCTO REPETIDO
+//VALIDACIÓN PARA AUMENTAR LA CANTIDAD EN CASO DE PRODUCTO REPETIDO
 
 function incraseQuantity (idProduct) {
     const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
 
     for (let i = 0; i < productsCart.length; i++) {
-        if (productsCart[i].idProduct === idProduct){
-        console.log("🚀 ~ file: index.js ~ line 216 ~ incraseQuantity ~ productsCart[i].idProduct", productsCart[i].idProduct)
+        const product = productsCart[i];
+        const inputQuantity = document.getElementById(`inputQuantity${product.idProduct}`);
+        if (product.idProduct === idProduct){
+            inputQuantity.value++
             
-
         }
     }
 }
@@ -229,12 +230,8 @@ function addToCartClickEvents() {
 }
 
 
-
-
-
 createProduct();
 addToCartClickEvents();
 showProducts(JSON.parse(localStorage.getItem('productsCart')) || []);
 addQuantityChangeEvents();
-incraseQuantity ();
 
