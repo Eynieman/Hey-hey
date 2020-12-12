@@ -4,7 +4,7 @@ const spaceCardsAdd = document.getElementById('spaceCardsAdd');
 //DECLARACIÓN DE VARIABLES PARA MOSTRAR LOS PRODUCTOS EN EL CARRITO
 const productosCart = document.getElementById('productosCart');
 //Traer los productos de local storage
-const products = JSON.parse(localStorage.getItem('products')) || [];
+const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
 //TABLA DEL MODAL CARRITO
 const tableCartProduct = document.getElementById('tableCartProduct');
 //TOTAL PRODUCTOS MODAL CARRITO
@@ -15,7 +15,7 @@ const btnDeleteProductCart = document.getElementById('btnDeleteProductCart');
 
 function createProduct() {
     //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
     const cardsProducts = [];
     
     for (let i = 0; i < products.length; i++) {
@@ -27,6 +27,7 @@ function createProduct() {
                         <img class="imgProduct" src="${product.imgProduct}"
                             alt="">
                             <p class="d-none idProduct">${product.id}</p>
+                            <input id="inputQuantity${product.idProduct}" class="input-cantidad d-none" type="number" value="1"></td>
                     </div>
                     <div class="card-back">
                         <h3 class="titleProduct">${product.nameProduct}</h3>
@@ -119,16 +120,24 @@ function addToCartClick(event){
     const priceProduct = itemProduct.querySelector('.priceProduct').textContent;
     const imgProduct = itemProduct.querySelector('.imgProduct').src;
     const idProduct = itemProduct.querySelector('.idProduct').textContent;
-    
-    productsCart.push({
-        titleProduct,
-        priceProduct,
-        imgProduct,
-        idProduct,
-    })
+    const inputQuantity = itemProduct.querySelector('.input-cantidad').value;
 
-    //Guardar el carrito de compras en localStorage.
-    localStorage.setItem('productsCart', JSON.stringify(productsCart));
+    
+    const isFound = increaseQuantity (idProduct);
+    if (!isFound) {
+        productsCart.push({
+            titleProduct,
+            priceProduct,
+            imgProduct,
+            idProduct,
+            inputQuantity,
+        })
+        
+        //Guardar el carrito de compras en localStorage.
+        localStorage.setItem('productsCart', JSON.stringify(productsCart));
+    }
+
+
 
     alertAddProduct();
     Ocultar();
@@ -138,7 +147,6 @@ function addToCartClick(event){
     addQuantityChangeEvents();
     updateShopTotal();
 
-    incraseQuantity (idProduct);
 }
 
 function showProducts (productsCart) {
@@ -151,7 +159,7 @@ function showProducts (productsCart) {
                 <td><img class="size-img-shopCart" src="${product.imgProduct}" alt=""></td>
                 <td>${product.titleProduct}</td>
                 <td>${product.priceProduct}</td>
-                <td><input id="inputQuantity${product.idProduct}" class="input-cantidad" type="number" value="1"></td>
+                <td><input id="inputQuantity${product.idProduct}" class="input-cantidad" type="number" value="${product.inputQuantity}"></td>
                 <td>
                     <button class="btn btn-sm btn-danger" onclick="deleteProductCart('${product.idProduct}')"><i class="fas fa-trash-alt"></i></button>
                 </td>    
@@ -208,17 +216,17 @@ function addQuantityChangeEvents() {
 
 //VALIDACIÓN PARA AUMENTAR LA CANTIDAD EN CASO DE PRODUCTO REPETIDO
 
-function incraseQuantity (idProduct) {
+function increaseQuantity (idProduct) {
     const productsCart = JSON.parse(localStorage.getItem('productsCart')) || [];
-
-    for (let i = 0; i < productsCart.length; i++) {
-        const product = productsCart[i];
-        const inputQuantity = document.getElementById(`inputQuantity${product.idProduct}`);
-        if (product.idProduct === idProduct){
-            inputQuantity.value++
-            
+        for (let i = 0; i < productsCart.length; i++) {
+            const product = productsCart[i];
+            if (product.idProduct === idProduct){
+                product.inputQuantity++
+                return true;
+            }
+            localStorage.setItem('productsCart', JSON.stringify(productsCart));
         }
-    }
+        return false;
 }
 
 // AGREGAR PRODUCTOS AL CARRITO

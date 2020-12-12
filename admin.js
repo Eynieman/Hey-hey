@@ -22,7 +22,7 @@ const searchProductInput = document.getElementById('searchProductInput');
 
 //ARRAY PRODUCTOS HARDCODEADOS
 const productsDefault = [ 
-    {nameProduct:'almendras', descriptionProduct:'almendras', priceProduct:'120', imgProduct:'https://frutosare.com.ar/wp-content/uploads/2019/07/nuez-dorada.jpg', id:'productDefault1'}, 
+    {nameProduct:'Nueces', descriptionProduct:'Nueces', priceProduct:'120', imgProduct:'https://frutosare.com.ar/wp-content/uploads/2019/07/nuez-dorada.jpg', id:'productDefault1'}, 
     {nameProduct:'Aceite de Coco', descriptionProduct:'Aceite de Coco', priceProduct:'130', imgProduct:'https://www.culturaalimentaria.com.ar/wp-content/uploads/2016/08/mk.jpg', id:'productDefault2'},
     {nameProduct:'Yogurt Griego', descriptionProduct:'Yogurt Griego', priceProduct:'150', imgProduct:'https://images.lider.cl/wmtcl?source=url[file:/productos/497326a.jpg]&sink', id:'productDefault3'},
     {nameProduct:'Leche de Almendras', descriptionProduct:'Leche de Almendras', priceProduct:'110', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/942/490/products/diseno-sin-titulo-871-adfadedab943e1f32915650200181711-640-0.png', id:'productDefault4'},
@@ -33,15 +33,6 @@ const productsDefault = [
     {nameProduct:'Aceite de Oliva', descriptionProduct:'Aceite de Oliva', priceProduct:'190', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/942/490/products/capn-acks-5th-birthday-51-399690d571e305259115524962503353-640-0.png', id:'productDefault9'},
 ]
 
-// function displayProductsDefault() {
-//     const products = JSON.parse(localStorage.getItem('products')) || [];
-
-//         if (products === []) {
-//         products.push(productsDefault);
-//         }
-//         localStorage.setItem('products', JSON.stringify(products));
-// }
-// displayProductsDefault();
 
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
