@@ -91,9 +91,6 @@ function logOut(){
     location.reload();
 }
 
-<<<<<<< HEAD
-
-=======
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -247,4 +244,3 @@ addToCartClickEvents();
 showProducts(JSON.parse(localStorage.getItem('productsCart')) || []);
 addQuantityChangeEvents();
 
->>>>>>> shoppingCart
