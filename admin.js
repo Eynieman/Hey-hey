@@ -46,7 +46,7 @@ formAddProduct.onsubmit = (event) =>{
     event.preventDefault();
 
     //Traer los productos de local storage
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
 
     //Tomar los valores de los input del producto
     const nameProduct = nameProductInput.value;
@@ -104,10 +104,7 @@ function createProduct(products) {
         
         trProducts.unshift(tr);
     }
-<<<<<<< HEAD
-=======
     localStorage.setItem('products', JSON.stringify(products));
->>>>>>> shoppingCart
     tableProducts.innerHTML = trProducts.join('');
 }
 displayAllProducts();
