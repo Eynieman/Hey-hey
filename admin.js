@@ -26,6 +26,18 @@ const productAdd = document.getElementById('productAdd');
 const productMod = document.getElementById('productMod');
 const productDel = document.getElementById('productDel');
 
+//ALERTA DESLOGUEO ADMIN
+const adminOut = document.getElementById('adminOut');
+
+//Funcion LogOut
+function logOutAdmin(){
+    adminOut.classList.remove('d-none');
+    //Delay para el deslogueo
+    $('#error').show();
+    setTimeout(function () {
+        window.location.href = './index.html';
+    }, 1000);
+}
 
 //ARRAY PRODUCTOS HARDCODEADOS
 const productsDefault = [ 
