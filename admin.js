@@ -40,6 +40,8 @@ const productsDefault = [
     {nameProduct:'Aceite de Oliva', descriptionProduct:'Aceite de Oliva', priceProduct:'190', imgProduct:'https://d26lpennugtm8s.cloudfront.net/stores/942/490/products/capn-acks-5th-birthday-51-399690d571e305259115524962503353-640-0.png', id:'productDefault9'},
 ]
 
+localStorage.setItem('products', JSON.stringify(productsDefault));
+
 
 formAddProduct.onsubmit = (event) =>{
     //Evento para prevenir que la pagina se recargue
@@ -116,7 +118,7 @@ function displayAllProducts() {
 }
 
 function deleteProduct(productId) {
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
     const filteredProducts = products.filter((product)=> product.id !== productId);
     localStorage.setItem('products', JSON.stringify(filteredProducts));
     productDel.classList.remove('d-none');
@@ -136,7 +138,7 @@ function Ocultar() {
 }
 
 const uploadFormEdit = (productId) =>{
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
     const product = products.find((producto) => producto.id === productId);
     nameEditProductIn.value = product.nameProduct;
     descriptionEditProductIn.value = product.descriptionProduct;
@@ -148,7 +150,7 @@ const uploadFormEdit = (productId) =>{
 
 formEditProduct.onsubmit = (evento) =>{
     evento.preventDefault();
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
 
     //Tomar los valores de los input del producto
     const nameProduct = nameEditProductIn.value;
@@ -172,7 +174,7 @@ formEditProduct.onsubmit = (evento) =>{
 
     searchForm.onsubmit = (e) => {
     e.preventDefault();
-    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const products = JSON.parse(localStorage.getItem('products')) || productsDefault;
     const term = searchProductInput.value;
     const filteredProducts = products.filter(product =>(
         product.nameProduct.toLowerCase().includes(term.toLowerCase())
@@ -180,5 +182,5 @@ formEditProduct.onsubmit = (evento) =>{
         searchForm.reset();
         productSearch.classList.remove('d-none');
         Ocultar();
-        createProduct(filteredProducts);    
+        createProduct(filteredProducts);
 };
