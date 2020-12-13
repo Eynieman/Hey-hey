@@ -120,7 +120,7 @@ function addToCartClick(event){
     const priceProduct = itemProduct.querySelector('.priceProduct').textContent;
     const imgProduct = itemProduct.querySelector('.imgProduct').src;
     const idProduct = itemProduct.querySelector('.idProduct').textContent;
-    const inputQuantity = itemProduct.querySelector('.input-cantidad').value;
+    const inputQuantity = parseFloat(itemProduct.querySelector('.input-cantidad').value);
 
     
     const isFound = increaseQuantity (idProduct);
@@ -135,13 +135,13 @@ function addToCartClick(event){
         
         //Guardar el carrito de compras en localStorage.
         localStorage.setItem('productsCart', JSON.stringify(productsCart));
+        showProducts(productsCart);
     }
 
 
 
     alertAddProduct();
     Ocultar();
-    showProducts(productsCart);
     
     // Después de cargarse la tabla, se cargan los listeners de los inputs.
     addQuantityChangeEvents();
@@ -221,10 +221,11 @@ function increaseQuantity (idProduct) {
         for (let i = 0; i < productsCart.length; i++) {
             const product = productsCart[i];
             if (product.idProduct === idProduct){
-                product.inputQuantity++
+                product.inputQuantity += 1
+                localStorage.setItem('productsCart', JSON.stringify(productsCart));
+                showProducts(productsCart);
                 return true;
             }
-            localStorage.setItem('productsCart', JSON.stringify(productsCart));
         }
         return false;
 }
