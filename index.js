@@ -12,6 +12,9 @@ const totalShopCart = document.getElementById('totalShopCart');
 //BOTON BORRAR PRODUCTO DEL CARRITO
 const btnDeleteProductCart = document.getElementById('btnDeleteProductCart');
 
+//ALERTA DE DESLOGUEO
+const alertaOut = document.getElementById('alertaOut');
+
 
 function createProduct() {
     //Traer los productos de local storage
@@ -87,8 +90,13 @@ if (userLogged !== null){
 
 //ELIMINAR EL USUARIO LOGUEADO Y RECARGAR LA PAGINA
 function logOut(){
+    alertaOut.classList.remove('d-none');
     localStorage.removeItem('userLogged');
-    location.reload();
+    //Delay para el deslogueo
+    $('#error').show();
+    setTimeout(function () {
+        location.reload();
+    }, 1000);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

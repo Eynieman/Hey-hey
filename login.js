@@ -2,10 +2,12 @@
 const formLogin = document.getElementById('formLogin');
 const userInput = document.getElementById('user');
 const passwordInput = document.getElementById('password');
+//ALERTAS: CONTRASEÑA INVÁLIDA, LOGUEO, SUSPENDIDO, CREACION
 const alerta = document.getElementById('alerta');
 const alertaIn = document.getElementById('alertaIn');
 const userSuspended = document.getElementById('userSuspended');
 const userAcount = document.getElementById('userAcount');
+const alertaCreate = document.getElementById('alertaCreate');
 
 //USER ADMIN
 const administrador = {
@@ -47,6 +49,8 @@ formCreate.onsubmit = (e) => {
     
     localStorage.setItem('users', JSON.stringify(users));
     formCreate.reset();
+    alertaCreate.classList.remove('d-none');
+    Ocultar();
     $('#modalCreateAccount').modal('hide');
 }
 
@@ -67,9 +71,25 @@ formLogin.onsubmit = function (e) {
         }
         localStorage.setItem('userLogged', JSON.stringify(findOutUser));
         alertaIn.classList.remove('d-none');
-        window.location.href = './index.html';
+        //Delay para el login
+        $('#error').show();
+        setTimeout(function () {
+            window.location.href = './index.html';
+        }, 1000);
     }
     else {
         alerta.classList.remove('d-none');
+        Ocultar();
     }
+}
+
+// Funcion Ocultar para divs:
+function Ocultar() {
+    setTimeout(function () {
+        const alertas = $(".alert")
+        for (let i = 0; i < alertas.length; i++) {
+            const element = alertas[i];
+            element.classList.add('d-none');
+        }
+    }, 2000);
 }
