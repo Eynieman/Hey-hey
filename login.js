@@ -8,6 +8,7 @@ const alertaIn = document.getElementById('alertaIn');
 const userSuspended = document.getElementById('userSuspended');
 const userAcount = document.getElementById('userAcount');
 const alertaCreate = document.getElementById('alertaCreate');
+const alertaAdmin = document.getElementById('alertaAdmin');
 
 //USER ADMIN
 const administrador = {
@@ -62,8 +63,12 @@ formLogin.onsubmit = function (e) {
     const findOutUser = users.find((u) => u.user === user && u.password === password);
     const userAdmin = user === administrador.user && password === administrador.password;
     if (userAdmin) {
-        alertaIn.classList.remove('d-none');
-        window.location.href = './admin.html';
+        alertaAdmin.classList.remove('d-none');
+        //Delay para el login de admin
+        $('#error').show();
+        setTimeout(function () {
+            window.location.href = './admin.html';
+        }, 1000);
     } else if (findOutUser) {
         if (findOutUser.isSuspended == true) {
             userSuspended.classList.remove('d-none');
