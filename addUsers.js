@@ -121,7 +121,8 @@ searchUserForm.onsubmit = (e) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const term = searchUserInput.value.toLowerCase();
     const filteredUsers = users.filter((u) => (
-        u.user.toLowerCase().includes(term) || u.nombreApellido.toLowerCase().includes(term)     ));
+        u.user.toLowerCase().includes(term) || u.nombreApellido.toLowerCase().includes(term)));
+        searchUserForm.reset();
         userSearch.classList.remove('d-none');
         Ocultar();
         displayUsers(filteredUsers);

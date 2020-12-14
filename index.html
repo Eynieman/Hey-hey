@@ -259,7 +259,10 @@
             </button>
         </div>
 
+        <!-- Modal compra exitosa -->
+        <div id="compraExitosa" class="d-none">
 
+        </div>
         
 
         <!-- Modal del carrito -->
@@ -284,7 +287,12 @@
                                 </tr>
                             </thead>
                             <tbody id="tableCartProduct">
-    
+                                <div id="alertaEmptyCart" class="container alert alert-danger d-none">
+                                    ¡Ups vaciaste el carrito 😪!
+                                </div>
+                                <div id="alertaCompraExitosa" class="container alert alert-success d-none">
+                                    ¡Felicidades!👏👌 ¡Compra Realizada con éxito✅😃!
+                                </div>
                             </tbody>
                         </table>
                         <div class="row no-gutters">
@@ -293,13 +301,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" onclick="emptyCart()">Vaciar Carrito</button>
-                        <button type="button" class="btn btn-outline-primary">Comprar</button>
+                        <button type="button" class="btn btn-outline-danger" onclick="emptyCart()">Vaciar Carrito</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="compraExitosa()">Comprar</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
     <!--Footer-->
     <footer>
