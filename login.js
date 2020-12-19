@@ -16,6 +16,7 @@ const administrador = {
     password: 'admin1',
 };
 
+
 //CREATE USERS
 const formCreate = document.getElementById('formCreate');
 const nombreApellidoInput = document.getElementById('nombreApellido');
@@ -64,6 +65,7 @@ formLogin.onsubmit = function (e) {
     const userAdmin = user === administrador.user && password === administrador.password;
     if (userAdmin) {
         alertaAdmin.classList.remove('d-none');
+        localStorage.setItem ('isAdmin', JSON.stringify(true));
         //Delay para el login de admin
         $('#error').show();
         setTimeout(function () {

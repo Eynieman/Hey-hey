@@ -28,11 +28,22 @@ const productAdd = document.getElementById('productAdd');
 const productMod = document.getElementById('productMod');
 const productDel = document.getElementById('productDel');
 
+
+//RESTRICCIÓN DE ACCESO POR URL - CONTLROL DE INGRESO SOLO PARA ADMIN
+function accessControl() {
+    const isAdmin = JSON.parse(localStorage.getItem ('isAdmin'));
+        if (isAdmin !== true) {
+            window.location.href='./index.html'
+        }
+}
+accessControl();
+
 //ALERTA DESLOGUEO ADMIN
 const adminOut = document.getElementById('adminOut');
 
 //Funcion LogOut
 function logOutAdmin(){
+    localStorage.removeItem('isAdmin');
     adminOut.classList.remove('d-none');
     //Delay para el deslogueo
     $('#error').show();
